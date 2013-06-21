@@ -1,0 +1,20 @@
+Message stats for scenario USP.SprayAndWait
+sim_time: 86400.0000
+created: 25165
+started: 101873
+relayed: 101459
+aborted: 414
+dropped: 117510
+removed: 0
+delivered: 8912
+delivery_prob: 0.3541
+response_prob: 0.1849
+overhead_ratio: 10.3845
+latency_avg: 1383.1328
+latency_med: 1211.2000
+hopcount_avg: 2.3844
+hopcount_med: 2
+buffertime_avg: 3069.0393
+buffertime_med: 3264.0000
+rtt_avg: 2860.9485
+rtt_med: 2822.9000

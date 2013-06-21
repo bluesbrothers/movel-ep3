@@ -1,0 +1,768 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<JCSDataFile xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" >
+<JCSGMLInputTemplate>
+<CollectionElement>featureCollection</CollectionElement> 
+<FeatureElement>feature</FeatureElement>
+<GeometryElement>geometry</GeometryElement>
+<ColumnDefinitions>
+</ColumnDefinitions>
+</JCSGMLInputTemplate>
+
+<featureCollection>
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>743.8969627626414,-432.9168969238785 
+                    741.4813800336404,-416.81301206387195 
+                    732.6242433606368,-405.5402926618674 
+                    726.9878836596346,-393.4623790168625 
+                    717.3255527436306,-390.24160204486117 
+                    685.1177830236176,-411.98184660587 
+                    673.8450636216129,-417.61820630687225 
+                    683.5073945376168,-432.9168969238785 
+                    701.221667883624,-423.2545660078746 
+                    726.1826894166342,-407.150681147868 
+                    725.3774951736339,-407.95587539086836 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>726.1826894166342,-407.150681147868 
+                    732.6242433606368,-405.5402926618674 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>683.5073945376168,-432.9168969238785 
+                    644.0528766306008,-458.68311269988897 
+                    656.1307902756057,-490.890882419902 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>644.0528766306008,-458.68311269988897 
+                    624.728214798593,-453.0467529988867 
+                    624.728214798593,-439.3584508678811 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>624.728214798593,-439.3584508678811 
+                    652.1048190606041,-428.89092570887686 
+                    652.9100133036044,-428.0857314658765 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>624.728214798593,-439.3584508678811 
+                    578.8321429475743,-442.57922783988244 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>647.2736536026022,-497.33243636390466 
+                    658.5463730046067,-505.38437879390796 
+                    669.8190924066113,-503.7739903079073 
+                    673.8450636216129,-531.9557888129187 
+                    676.2606463506139,-565.7739470189325 
+                    674.6502578646133,-582.6830261219393 
+                    696.3905024256221,-597.9817167389456 
+                    701.221667883624,-564.1635585329318 
+                    707.6632218276267,-533.5661772989193 
+                    711.6891930426283,-506.9947672799086 
+                    714.9099700146296,-503.7739903079073 
+                    709.2736103136274,-491.6960766629024 
+                    665.7931211916097,-486.8649112049004 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>709.2736103136274,-491.6960766629024 
+                    736.6502145756384,-486.0597169619001 
+                    764.8320130806499,-478.8129687748971 
+                    788.1826461276594,-473.9818033168952 
+                    794.624200071662,-469.9558321018935 
+                    807.5073079596673,-453.851947241887 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>715.7151642576299,-457.0727242138883 
+                    720.5463297156319,-478.8129687748971 
+                    739.8709915476397,-472.37141483089454 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>709.2736103136274,-491.6960766629024 
+                    784.1566749126578,-501.3584075789063 
+                    792.208617342661,-502.16360182190664 
+                    788.1826461276594,-473.9818033168952 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>792.208617342661,-502.16360182190664 
+                    832.4683294926774,-521.4882636539145 
+                    846.156631623683,-534.3713715419198 
+                    852.5981855676856,-545.6440909439243 
+                    863.8709049696902,-552.085644887927 
+                    874.3384301286944,-563.3583642899315 
+                    876.7540128576953,-585.0986088509403 
+                    877.5592071006957,-606.0336591689488 
+                    877.5592071006957,-626.9687094869573 
+                    860.6501279976889,-638.2414288889619 
+                    848.5722143526839,-655.1505079919688 
+                    846.9618258666833,-672.864781337976 
+                    843.741048894682,-691.3842489269836 
+                    865.4812934556908,-710.7089107589914 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>843.741048894682,-691.3842489269836 
+                    834.078717978678,-656.7608964779695 
+                    837.2994949506793,-659.1764792069704 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>860.6501279976889,-638.2414288889619 
+                    849.3774085956843,-620.5271555429547 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>822.8059985766735,-515.8519039529122 
+                    848.5722143526839,-523.9038463829155 
+                    863.8709049696902,-529.5402060839177 
+                    879.1695955866963,-543.2285082149233 
+                    896.8838689327035,-557.7220045889292 
+                    907.3513940917078,-579.4622491499381 
+                    910.5721710637091,-594.7609397669443 
+                    915.403336521711,-614.085601598952 
+                    919.4293077367128,-635.0206519169606 
+                    917.0137250077117,-651.9297310199674 
+                    907.3513940917078,-667.2284216369737 
+                    893.6630919607022,-679.3063352819786 
+                    881.5851783156974,-697.8258028709861 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>907.3513940917078,-579.4622491499381 
+                    927.481250166716,-568.9947239909338 
+                    927.481250166716,-564.1635585329318 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>896.8838689327035,-557.7220045889292 
+                    910.5721710637091,-528.7350118409174 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>744.7021570056418,-534.3713715419198 
+                    759.1956533796476,-530.345400326918 
+                    782.546286426657,-521.4882636539145 
+                    813.1436676606695,-511.02073849491023 
+                    813.1436676606695,-511.82593273791053 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>782.546286426657,-521.4882636539145 
+                    795.4293943146623,-546.4492851869246 
+                    796.2345885576626,-547.2544794299249 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>759.1956533796476,-530.345400326918 
+                    783.3514806696575,-544.0337024579236 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>606.2087472095855,-729.2283783479988 
+                    618.2866608545903,-730.0335725909993 
+                    634.3905457145969,-729.2283783479988 
+                    648.0788478456025,-750.9686229090078 
+                    654.5204017896051,-761.436148068012 
+                    635.1957399575972,-774.3192559560172 
+                    632.7801572285963,-781.5660041430201 
+                    640.8320996585995,-784.7867811150214 
+                    661.767149976608,-766.2673135260139 
+                    682.7022002946165,-759.8257595820113 
+                    694.7801139396214,-744.5270689650051 
+                    715.7151642576299,-733.2543495630006 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>618.2866608545903,-717.150464702994 
+                    582.8581141625759,-690.5790546839831 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>618.2866608545903,-717.150464702994 
+                    617.48146661159,-694.6050258989848 
+                    640.0269054155992,-653.5401195059682 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>638.4165169295985,-680.9167237679793 
+                    644.0528766306008,-668.033615879974 
+                    640.0269054155992,-653.5401195059682 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>589.2996681065786,-650.3193425339668 
+                    604.5983587235849,-671.2543928519754 
+                    612.6503011535881,-685.7478892259812 
+                    617.48146661159,-694.6050258989848 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>604.5983587235849,-671.2543928519754 
+                    621.5074378265916,-659.9816734499708 
+                    644.0528766306008,-668.033615879974 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>760.0008476226479,-581.877831878939 
+                    730.2086606316359,-583.4882203649397 
+                    715.7151642576299,-584.29341460794 
+                    696.3905024256221,-597.9817167389456 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>625.5334090415934,-506.9947672799086 
+                    640.8320996585995,-506.9947672799086 
+                    635.1957399575972,-527.1246233549168 
+                    635.1957399575972,-541.6181197289227 
+                    644.0528766306008,-567.3843355049331 
+                    674.6502578646133,-582.6830261219393 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>657.7411787616064,-519.8778751679138 
+                    640.8320996585995,-506.9947672799086 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>606.2087472095855,-532.760983055919 
+                    615.0658838825891,-526.3194291119164 
+                    635.1957399575972,-527.1246233549168 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>594.1308335645806,-515.0467097099119 
+                    582.8581141625759,-561.7479758039308 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>582.8581141625759,-561.7479758039308 
+                    595.7412220505812,-581.877831878939 
+                    644.0528766306008,-567.3843355049331 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>587.689279620578,-587.5141915799413 
+                    631.1697687425956,-606.0336591689488 
+                    644.8580708736012,-590.7349685519426 
+                    661.767149976608,-605.2284649259485 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>617.48146661159,-589.1245800659419 
+                    631.9749629855959,-578.6570549069377 
+                    644.8580708736012,-590.7349685519426 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>617.48146661159,-589.1245800659419 
+                    631.1697687425956,-606.0336591689488 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>631.1697687425956,-606.0336591689488 
+                    648.0788478456025,-623.747932514956 
+                    656.1307902756057,-640.6570116179629 
+                    668.2087039206107,-656.7608964779695 
+                    677.8710348366146,-657.5660907209698 
+                    684.3125887806171,-651.9297310199674 
+                    697.1956966686224,-643.0725943469639 
+                    709.2736103136274,-639.0466231319623 
+                    712.4943872856286,-626.9687094869573 
+                    709.2736103136274,-622.9427382719557 
+                    707.6632218276267,-605.2284649259485 
+                    716.5203585006303,-594.7609397669443 
+                    731.0138548746362,-592.3453570379432 
+                    754.3644879216456,-596.3713282529449 
+                    753.5592936786453,-621.3323497859551 
+                    751.1437109496443,-635.0206519169606 
+                    756.7800706506466,-640.6570116179629 
+                    749.5333224636437,-666.4232273939733 
+                    748.7281282206434,-673.6699755809763 
+                    739.8709915476397,-682.5271122539799 
+                    725.3774951736339,-688.1634719549822 
+                    704.4424448556254,-686.5530834689815 
+                    681.8970060516162,-675.280364066977 
+                    673.8450636216129,-667.2284216369737 
+                    673.0398693786126,-659.9816734499708 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>662.5723442196083,-618.1115728139538 
+                    648.0788478456025,-623.747932514956 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>672.2346751356123,-630.9946807019589 
+                    656.1307902756057,-640.6570116179629 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>672.2346751356123,-630.9946807019589 
+                    662.5723442196083,-618.1115728139538 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>693.9749196966211,-630.1894864589586 
+                    709.2736103136274,-622.9427382719557 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>731.0138548746362,-609.2544361409501 
+                    731.0138548746362,-592.3453570379432 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>701.221667883624,-580.2674433929384 
+                    715.7151642576299,-584.29341460794 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>621.5074378265916,-547.2544794299249 
+                    615.0658838825891,-526.3194291119164 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>776.1047324826545,-660.7868676929711 
+                    768.8579842956516,-673.6699755809763 
+                    748.7281282206434,-673.6699755809763 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>781.7410921836567,-677.695946795978 
+                    806.7021137166669,-695.4102201419852 
+                    804.286530987666,-719.566047431995 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>804.286530987666,-719.566047431995 
+                    794.624200071662,-710.7089107589914 
+                    780.1307036976561,-705.8777453009894 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>776.1047324826545,-724.3972128899969 
+                    794.624200071662,-710.7089107589914 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>826.8319697916751,-717.150464702994 
+                    851.7929913246852,-743.7218747220048 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>928.2864444097163,-674.4751698239767 
+                    944.3903292697229,-702.6569683289881 
+                    961.2994083727298,-692.1894431699839 
+                    969.351350802733,-687.3582777119818 
+                    966.1305738307317,-680.9167237679793 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>946.8059119987238,-713.1244934879924 
+                    963.7149911017307,-709.903716515991 
+                    978.2084874757365,-684.9426949829809 
+                    989.4812068777412,-660.7868676929711 
+                    1002.3643147657464,-647.9037598049658 
+                    1020.0785881117536,-638.2414288889619 
+                    1026.5201420557562,-641.4622058609632 
+                    1047.4551923737647,-633.41026343096 
+                    1065.169465719772,-642.2674001039636 
+                    1080.468156336778,-641.4622058609632 
+                    1088.5200987667815,-637.4362346459616 
+                    1061.1434945047704,-591.540162794943 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>992.7019838497425,-695.4102201419852 
+                    978.2084874757365,-684.9426949829809 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>992.7019838497425,-695.4102201419852 
+                    1026.5201420557562,-641.4622058609632 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>992.7019838497425,-695.4102201419852 
+                    985.4552356627396,-708.2933280299903 
+                    971.766933531734,-722.7868244039963 
+                    961.2994083727298,-730.8387668339996 
+                    957.273437157728,-725.2024071329972 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1011.22145143875,-716.3452704599937 
+                    985.4552356627396,-708.2933280299903 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>995.1175665787434,-762.2413423110123 
+                    979.013681718737,-736.4751265350018 
+                    985.4552356627396,-708.2933280299903 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1011.22145143875,-716.3452704599937 
+                    1036.1824729717603,-705.8777453009894 
+                    1042.6240269157627,-672.864781337976 
+                    1065.169465719772,-642.2674001039636 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1036.1824729717603,-705.8777453009894 
+                    995.1175665787434,-762.2413423110123 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1036.1824729717603,-705.8777453009894 
+                    1036.1824729717603,-722.7868244039963 
+                    1079.6629620937779,-704.2673568149887 
+                    1111.0655375707906,-680.9167237679793 
+                    1115.8967030287924,-678.5011410389783 
+                    1088.5200987667815,-637.4362346459616 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1115.8967030287924,-678.5011410389783 
+                    1148.1044727488056,-720.3712416749953 
+                    1132.8057821317993,-740.5010977500035 
+                    1109.45514908479,-753.3842056380087 
+                    1083.6889333087795,-766.2673135260139 
+                    1069.1954369347736,-770.2932847410156 
+                    1059.5331060187696,-785.5919753580218 
+                    1047.4551923737647,-796.0595005170261 
+                    1035.3772787287598,-800.890665975028 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1098.1824296827854,-725.2024071329972 
+                    1098.1824296827854,-708.2933280299903 
+                    1111.8707318137908,-696.2154143849855 
+                    1115.8967030287924,-678.5011410389783 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1111.8707318137908,-696.2154143849855 
+                    1129.5850051597981,-712.3192992449921 
+                    1122.338256972795,-724.3972128899969 
+                    1098.1824296827854,-708.2933280299903 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1088.5200987667815,-637.4362346459616 
+                    1119.9226742437943,-612.4752131129515 
+                    1129.5850051597981,-627.7739037299576 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1119.9226742437943,-612.4752131129515 
+                    1132.0005878887991,-612.4752131129515 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1119.9226742437943,-612.4752131129515 
+                    1119.1174800007939,-600.3972994679466 
+                    1098.1824296827854,-602.8128821969475 
+                    1093.3512642247833,-612.4752131129515 
+                    1088.5200987667815,-637.4362346459616 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1115.8967030287924,-678.5011410389783 
+                    1156.1564151788089,-633.41026343096 
+                    1169.0395230668141,-609.2544361409501 
+                    1162.5979691228115,-597.9817167389456 
+                    1148.1044727488056,-593.955745523944 
+                    1142.4681130478034,-599.5921052249462 
+                    1152.9356382068077,-605.2284649259485 
+                    1159.3771921508103,-608.4492418979498 
+                    1159.3771921508103,-628.579097972958 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1142.4681130478034,-599.5921052249462 
+                    1141.662918804803,-610.8648246269508 
+                    1159.3771921508103,-628.579097972958 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     <feature> 
+          <geometry>
+                <gml:LineString>
+                  <gml:coordinates>1148.1044727488056,-720.3712416749953 
+                    1194.8057388428247,-736.4751265350018 
+                    1205.273264001829,-705.8777453009894 
+                    1185.948602169821,-699.4361913569868 
+                    1199.6369043008265,-666.4232273939733 
+                    1156.1564151788089,-633.41026343096 </gml:coordinates>
+                </gml:LineString>
+          </geometry>
+     </feature>
+
+     </featureCollection>
+</JCSDataFile>
