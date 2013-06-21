@@ -197,11 +197,10 @@ Events3.hosts = 0,219
 Events3.prefix = M4
 
 ########### Configuração de Relatórios
-Report.nrofReports = 2
+Report.nrofReports = 1
 Report.warmup = 0
 Report.reportDir = reports
 Report.report1 = MessageStatsReport
-Report.report2 = ConnectivityONEReport
 
 ########### Mapa na tela
 GUI.UnderlayImage.fileName = ../cenarios/ParqueIbirapuera/mapa-ibirapuera.png

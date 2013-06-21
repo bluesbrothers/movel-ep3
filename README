@@ -15,6 +15,30 @@ No relatório encontram-se:
  * análises feitas em cima dos resultados.
  * reports gerados
 
+CENÁRIOS ESCOLHIDOS:
+ 1) ParqueIbirapuera
+   Tempo de simulação: 3600s (1h)
+   Grupos: 6
+     G1 - Ciclistas
+     G2 - Pedestres
+     G3 - Cooper People
+     G4 - Piquenique 1
+     G5 - Piquenique 2
+     G6 - Piquenique 3
+   Padrões de movimentação usados: MapBasedMovement, ClusterMovement
+   Padrões de roteamento usados: ProphetRouter
+
+  2) USP2
+    Tempo de simulação: 86400s (24h)
+    Grupos: 4
+      G1 - Circular 1
+      G2 - Circular 2
+      G3 - Carros
+      G4 - Pedestres
+    Padrões de movimentação usados: ShortestPathMapBasedMovement, 
+                              MapRouteMoviment
+    Padrões de roteamento usados: EpidemicRouter
+
 
 SIGNIFICADO DOS VALORES NOS REPORTS (do report padrão, MessageStatsReport):
 sim_time: tempo que a simulacao ficou rodando (em segundos?)
