@@ -14,3 +14,30 @@ No relatório encontram-se:
  * detalhamento de cada teste rodado (cenário, padrão de movimentação, etc)
  * análises feitas em cima dos resultados.
  * reports gerados
+
+
+SIGNIFICADO DOS VALORES NOS REPORTS (do report padrão, MessageStatsReport):
+sim_time: tempo que a simulacao ficou rodando (em segundos?)
+created: numero de mensagens criadas
+started: numero de mensagens que começaram a ser transferidas
+relayed: numero de mensagens transferidas com sucesso de um nó a outro
+aborted: numero de transferencias de mensagens que foram abortadas antes de completar
+dropped: numero de mensagens deletada (droppadas)
+removed: numero de mensagens deletada (removida)
+delivered: numero de mensagens que foram transferidas e chegaram no destino final.
+delivery_prob: porcentagem (em [0,1]) de mensagens entregues ( delivered / created )
+response_prob: porcentagem (em [0,1]) de respostas entregues ( deliveredResponses / createdResponses )
+    -> note que ele não dá esses stats das respostas. Mas o created/delivered/delivered_prob conta as respostas também.
+overhead_ratio: taxa de overhead ( (relayed-delivered)/delivered )
+latency_avg: média de latências
+latency_med: mediana de latências
+    -> latência: tempo da simulação entre a criação e o delivery de uma mensagem.
+hopcount_avg: média de hopcounts
+hopcount_med: mediana de hopcounts
+    -> hopcount: pulos que uma mensagem fez pra chegar ao destino
+buffertime_avg: média de buffertime
+buffertime_med: mediana de buffertime
+    -> buffertime: tempo que a mensagem ficou no buffer? (calculado qdo mensagem é deletada, tempoDaSimulacao - tempoQueMensagemFoiRecebida)
+rtt_avg: média de rtt
+rtt_med: mediana de rtt
+    -> rtt (round trip time): tempo que levou entre a criação de uma mensagem de pedido e o recebimento (no final) da resposta.
