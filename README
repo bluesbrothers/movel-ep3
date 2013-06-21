@@ -39,7 +39,7 @@ CENÁRIOS ESCOLHIDOS:
                               MapRouteMoviment
     Padrões de roteamento usados: SprayAndPrayRouter
     
-  2) USP.Epidemic
+  3) USP.Epidemic
     Tempo de simulação: 86400s (24h)
     Grupos: 4
       G1 - Circular 1
@@ -50,13 +50,13 @@ CENÁRIOS ESCOLHIDOS:
                               MapRouteMoviment
     Padrões de roteamento usados: EpidemicRouter
 
-  3) Estacionamento
+  4) Estacionamento
     Tempo de simulação: 3600s (1h)
     Grupos: 559
       G1 - Carros
       G2...559 - Vagas
     Padrões de movimentação usados: CarMovement, StationaryMovement
-    Padrões de roteamento usados: EpidemicRouter
+    Padrões de roteamento usados: FirstContactRouter
 
 
 SIGNIFICADO DOS VALORES NOS REPORTS (do report padrão, MessageStatsReport):
