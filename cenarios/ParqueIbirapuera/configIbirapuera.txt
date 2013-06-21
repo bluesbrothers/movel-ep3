@@ -15,7 +15,8 @@ Scenario.simulateConnections = true
 Scenario.updateInterval = 0.1
 # tempo em segundos
 #1hora de simulação
-Scenario.endTime = 3.6k
+#Scenario.endTime = 3.6k
+Scenario.endTime = 1.2k
 
 ########### Definição das interfaces de comunicação
 
