@@ -27,6 +27,11 @@
 \newcommand\titulo[1]{\csdef{vartitulo}{#1}}
 \newcommand\materia[1]{\csdef{varmateria}{#1}}
 
+\newcommand\createreportval[3]{
+  \csdef{rv-#1-#2}{#3}}
+\newcommand\reportval[2]{
+  \csuse{rv-#1-#2}}
+
 \newcounter{cttp}
 \newcommand\lolaluno[1]{\getnome{#1} & \getnusp{#1}}
 \newcommand\printalunos{%

@@ -51,7 +51,7 @@ Group1.bufferSize = 32M
 #padrão de movimentação orientado por mapas
 Group1.movementModel = MapBasedMovement
 #Localização do arquivo com as possibilidades de movimentação
-Group1.routeFile = data/ep2/mpCiclovia.wkt
+Group1.routeFile = ../cenarios/ParqueIbirapuera/mpCiclovia.wkt
 Group1.okMaps = 1
 Group1.routeType = 1
 #routeType 1: nós caminham um uma única direção (todos na mesma)
@@ -69,7 +69,7 @@ Group2.bufferSize = 32M
 #padrão de movimentação orientado por mapas
 Group2.movementModel = MapBasedMovement
 #Localização do arquivo com as possibilidades de movimentação
-Group2.routeFile = data/ep2/mpPedestres.wkt
+Group2.routeFile = ../cenarios/ParqueIbirapuera/mpPedestres.wkt
 Group2.okMaps = 2
 Group2.routeType = 1
 #até 5 minutos de tempo parado ao atingir o destino
@@ -87,7 +87,7 @@ Group3.bufferSize = 32M
 #padrão de movimentação orientado por mapas
 Group3.movementModel = MapBasedMovement
 #Localização do arquivo com as possibilidades de movimentação
-Group3.routeFile = data/ep2/mpCooper.wkt
+Group3.routeFile = ../cenarios/ParqueIbirapuera/mpCooper.wkt
 Group3.okMaps = 3
 Group3.routeType = 1
 #nao para
@@ -104,7 +104,7 @@ Group4.bufferSize = 32M
 #padrão de movimentação orientado por mapas
 Group4.movementModel = MovingClusterMovement
 #Localização do arquivo com as possibilidades de movimentação
-Group4.routeFile = data/ep2/mpPiquenique.wkt
+Group4.routeFile = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
 Group4.clusterRange = 6
 Group4.okMaps = 4
 Group4.routeType = 1
@@ -123,7 +123,7 @@ Group5.bufferSize = 32M
 #padrão de movimentação orientado por mapas
 Group5.movementModel = MovingClusterMovement
 #Localização do arquivo com as possibilidades de movimentação
-Group5.routeFile = data/ep2/mpPiquenique.wkt
+Group5.routeFile = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
 Group5.clusterRange = 6
 Group5.okMaps = 4
 Group5.routeType = 1
@@ -142,7 +142,7 @@ Group6.bufferSize = 32M
 #padrão de movimentação orientado por mapas
 Group6.movementModel = MovingClusterMovement
 #Localização do arquivo com as possibilidades de movimentação
-Group6.routeFile = data/ep2/mpPiquenique.wkt
+Group6.routeFile = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
 Group6.clusterRange = 6
 Group6.okMaps = 4
 Group6.routeType = 1
@@ -157,10 +157,10 @@ Group6.interface2 = wifiInterface
 
 ########### Movimento baseado em mapa - Configuração
 MapBasedMovement.nrofMapFiles = 4
-MapBasedMovement.mapFile1 = data/ep2/mpCiclovia.wkt
-MapBasedMovement.mapFile2 = data/ep2/mpPedestres.wkt
-MapBasedMovement.mapFile3 = data/ep2/mpCooper.wkt
-MapBasedMovement.mapFile4 = data/ep2/mpPiquenique.wkt
+MapBasedMovement.mapFile1 = ../cenarios/ParqueIbirapuera/mpCiclovia.wkt
+MapBasedMovement.mapFile2 = ../cenarios/ParqueIbirapuera/mpPedestres.wkt
+MapBasedMovement.mapFile3 = ../cenarios/ParqueIbirapuera/mpCooper.wkt
+MapBasedMovement.mapFile4 = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
 
 ########### Configuração do gerador de eventos - Criar mensagens a enviar
 # Quantidade de eventos
@@ -199,11 +199,11 @@ Events3.prefix = M4
 ########### Configuração de Relatórios
 Report.nrofReports = 2
 Report.warmup = 0
-Report.reportDir = data/ep2/reports
+Report.reportDir = ../cenarios/ParqueIbirapuera/reports
 Report.report1 = MessageStatsReport
 Report.report2 = ConnectivityONEReport
 
 ########### Mapa na tela
-GUI.UnderlayImage.fileName = data/ep2/mapa-ibirapuera.png
+GUI.UnderlayImage.fileName = ../cenarios/ParqueIbirapuera/mapa-ibirapuera.png
 GUI.UnderlayImage.offset = -485, -270
 GUI.UnderlayImage.scale = 1
