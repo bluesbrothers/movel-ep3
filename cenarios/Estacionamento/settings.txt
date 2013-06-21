@@ -2,9 +2,7 @@ Scenario.name = Parking
 Scenario.simulateConnections = true
 #Scenario.updateInterval = 0.1
 Scenario.updateInterval = 1
-# 43k ~= 12h
-#Scenario.endTime = 100k
-Scenario.endTime = 43k
+Scenario.endTime = 3.6k
 
 # "Bluetooth" interface for all nodes
 btInterface.type = SimpleBroadcastInterface
@@ -26,22 +24,19 @@ Group.transmitSpeed = 250k
 #Group.msgTtl = 60
 Group.groupID = p
 Group.nrofHosts = 1
+Group.routeFile = ../cenarios/Estacionamento/estacionamento_caminhos.wkt
+Group.routeType = 1
 
 #cars
 Group1.groupID = c
 Group1.bufferSize = 50M
 Group1.movementModel = CarMovement
-Group1.routeFile = estacionamento_caminhos.wkt
+Group1.routeFile = ../cenarios/Estacionamento/estacionamento_caminhos.wkt
 Group1.okMaps = 1
 Group1.routeType = 1
 Group1.waitTime = 0, 15
 Group1.speed = 7, 10
 Group1.nrofHosts = 70
-#Group1.nrofHosts = 1
-
-#Group2.groupID = p
-#Group2.nodeLocation = 4, 4
-
 
 Events.nrof = 1
 # Class of the first event generator
@@ -67,7 +62,7 @@ MovementModel.warmup = 1000
 
 ## Map based movement -movement model specific settings
 MapBasedMovement.nrofMapFiles = 1
-MapBasedMovement.mapFile1 = estacionamento_caminhos.wkt
+MapBasedMovement.mapFile1 = ../cenarios/Estacionamento/estacionamento_caminhos.wkt
 
 
 # how many reports to load
@@ -77,11 +72,10 @@ Report.warmup = 0
 # default directory of reports (can be overridden per Report with output setting)
 Report.reportDir = reports/
 # Report classes to load
-#Report.report1 = MessageStatsReport
-Report.report1 = ConnectivityONEReport
+Report.report1 = MessageStatsReport
 
 # GUI underlay image settings
-GUI.UnderlayImage.fileName = estacionamento.png
+GUI.UnderlayImage.fileName = ../cenarios/Estacionamento/estacionamento.png
 # Image offset in pixels (x, y)
 GUI.UnderlayImage.offset = -80, -30
 # Scaling factor for the image
@@ -96,13 +90,21 @@ GUI.EventLogPanel.nrofEvents = 30
 
 #parking spaces
 Group2.nodeLocation=248, 203
+Group2.movementModel = StationaryMovement
 Group3.nodeLocation=248, 193
+Group3.movementModel = StationaryMovement
 Group4.nodeLocation=252, 246
+Group4.movementModel = StationaryMovement
 Group5.nodeLocation=247, 185
+Group5.movementModel = StationaryMovement
 Group6.nodeLocation=250, 223
+Group6.movementModel = StationaryMovement
 Group7.nodeLocation=251, 234
+Group7.movementModel = StationaryMovement
 Group8.nodeLocation=243, 126
+Group8.movementModel = StationaryMovement
 Group9.nodeLocation=243, 138
+Group9.movementModel = StationaryMovement
 Group10.nodeLocation=240, 104
 Group11.nodeLocation=243, 114
 Group12.nodeLocation=245, 165

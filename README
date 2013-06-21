@@ -39,6 +39,14 @@ CENÁRIOS ESCOLHIDOS:
                               MapRouteMoviment
     Padrões de roteamento usados: EpidemicRouter
 
+  3) Estacionamento
+    Tempo de simulação: 3600s (1h)
+    Grupos: 559
+      G1 - Carros
+      G2...559 - Vagas
+    Padrões de movimentação usados: CarMovement, StationaryMoviment
+    Padrões de roteamento usados: EpidemicRouter
+
 
 SIGNIFICADO DOS VALORES NOS REPORTS (do report padrão, MessageStatsReport):
 sim_time: tempo que a simulacao ficou rodando (em segundos?)
