@@ -7,11 +7,12 @@ pdf:
 	@cd $(DOCDIR); make folderup
 
 $(ENTREGADIR):
-	@if [ ! -d $(ENTREGADIR) ]; then echo "criando diretorio novo '$(ENTREGaDIR)'"; mkdir $(ENTREGADIR); fi
+	@if [ ! -d $(ENTREGADIR) ]; then echo "criando diretorio novo '$(ENTREGADIR)'"; mkdir $(ENTREGADIR); fi
 
 clearreports:
 	@echo "limpando pasta de reports"
 	@rm -f $(REPORTSDIR)/*
+	@if [ ! -d $(REPORTSDIR) ]; then echo "criando diretorio novo '$(ENTREGaDIR)'"; mkdir $(REPORTSDIR); fi
 
 runtests: clearreports
 	@echo "Rodando as simuações"
