@@ -1,0 +1,16 @@
++-------------------------------------------------+
+| Diogo Haruki Kykuta         nUSP 6879613        |   
+| Fernando Omar Aluani        nUSP 6797226        |   
++-------------------------------------------------+
+| QUEM NÃO PULA, QUER TARIFA!                     |   
++-------------------------------------------------+
+
+Caso queira executar os tests, basta rodar 'make runtests'
+
+Os reports gerados estão na pasta reports e estão também no final do
+relatório.
+
+No relatório encontram-se:
+ * detalhamento de cada teste rodado (cenário, padrão de movimentação, etc)
+ * análises feitas em cima dos resultados.
+ * reports gerados
