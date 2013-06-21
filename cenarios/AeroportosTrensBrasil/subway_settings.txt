@@ -1,0 +1,106 @@
+Scenario.name = Subway
+Scenario.simulateConnections = true
+Scenario.updateInterval = 0.01
+# 43k ~= 12h
+Scenario.endTime = 3k
+
+
+# Interfaces
+btInterface.type = SimpleBroadcastInterface
+btInterface.transmitSpeed = 250k
+btInterface.transmitRange = 5
+
+
+Scenario.nrofHostGroups = 5
+# Host Groups:
+# 3 subway lines
+# 2 types of passengers:
+#     1) Workers (come and go between only two stations)
+#     2) Random (choose random destination each time they enter the subway)
+
+Group.nrofHosts = 2
+Group.router = PassiveRouter
+Group.bufferSize = 5M
+Group.transmitRange = 10
+Group.nrofInterfaces = 1
+Group.interface1 = btInterface
+Group.transmitSpeed = 250k
+Group.waitTime = 0, 120
+# walking speeds
+Group.speed = 0.5, 1.5
+Group.msgTtl = 60
+
+Group1.groupID = M1-
+Group1.movementModel = SubwayMovement
+Group1.routeType = 2
+Group1.line = 1
+Group1.routeFile = data/line1.wtk
+Group1.nrofHosts = 2
+
+Group2.groupID = M2-
+Group2.movementModel = SubwayMovement
+Group2.routeType = 2
+Group2.line = 2
+Group2.routeFile = data/line2.wtk
+Group2.nrofHosts = 3
+
+Group3.groupID = M3-
+Group3.movementModel = SubwayMovement
+Group3.routeType = 2
+Group3.line = 3
+Group3.routeFile = data/line3.wtk
+Group3.nrofHosts = 3
+
+Group4.groupID = TW-
+Group4.movementModel = SubwayTraveller
+Group4.router = EpidemicRouter
+Group4.nrofHosts = 20
+Group4.okMaps = 1,2,3
+
+Group5.groupID = TR-
+Group5.movementModel = SubwayRandomTraveller
+Group5.router = EpidemicRouter
+Group5.nrofHosts = 10
+Group5.okMaps = 1,2,3
+
+MovementModel.rngSeed = 1
+# World's size for Movement Models without implicit size (width, height; meters)
+MovementModel.worldSize = 4500, 3400
+# How long time to move hosts in the world before real simulation
+MovementModel.warmup = 0
+
+
+
+MapBasedMovement.nrofMapFiles = 3
+
+MapBasedMovement.mapFile1 = data/line1.wtk
+MapBasedMovement.mapFile2 = data/line2.wtk
+MapBasedMovement.mapFile3 = data/line3.wtk
+  
+  
+  
+Events.nrof = 2
+Events1.class = SubwayMessageEventGenerator
+Events1.interval = 25,35
+Events1.size = 500k, 1M
+Events1.hosts = 7, 27
+Events1.tohosts = 7, 37
+Events1.preferencial = 7, 27
+Events1.prefix = MSGP-
+  
+Events2.class = MessageEventGenerator
+Events2.interval = 25,35
+Events2.size = 100k, 500k
+Events2.hosts = 7, 37
+Events2.prefix = MSG
+
+
+# how many reports to load
+Report.nrofReports = 2
+# length of the warm up period (simulated seconds)
+Report.warmup = 0
+# default directory of reports (can be overridden per Report with output setting)
+Report.reportDir = reports/ep2
+# Report classes to load
+Report.report1 = ConnectivityONEReport
+Report.report2 = MessageStatsReport

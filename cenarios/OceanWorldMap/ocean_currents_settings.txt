@@ -1,0 +1,86 @@
+#
+# Ocean Currents settings for the simulation
+#
+
+## Scenario settings
+Scenario.name = Ocean Currents Scenario
+Scenario.simulateConnections = true
+Scenario.updateInterval = 10
+# 43200s == 120h
+Scenario.endTime = 432000
+
+# Broadcast interface for all nodes
+btInterface.type = SimpleBroadcastInterface
+# Transmit speed of 2 Mbps = 250kBps
+btInterface.transmitSpeed = 250k
+btInterface.transmitRange = 25
+
+Scenario.nrofHostGroups = 2
+
+# Common settings for all groups
+Group.movementModel = OceanCurrentsMovement
+Group.router = SprayAndWaitRouter
+Group.bufferSize = 50M
+Group.waitTime = 0, 120
+# All nodes have the same broadcast interface
+Group.nrofInterfaces = 1
+Group.interface1 = btInterface
+# Group speed range
+Group.speed = 20.5, 100.5
+# Message TTL of 300 minutes (5 hours)
+Group.msgTtl = 300
+
+Group.nrofHosts = 10
+
+# group1 specific settings
+Group1.groupID = MAC
+Group1.nrofHosts = 50
+
+# group2 specific settings
+Group2.groupID = MOVEL
+Group2.nrofHosts = 50
+
+## Message creation parameters 
+# How many event generators
+Events.nrof = 1
+# Class of the first event generator
+Events1.class = MessageEventGenerator
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 6 to 12 minutes)
+Events1.interval = 360,720
+# Message sizes (5kB - 15kB)
+Events1.size = 5k,15k
+# range of message source/destination addresses
+Events1.hosts = 0,99
+# Message ID prefix
+Events1.prefix = M
+
+## Movement model settings
+# seed for movement models' pseudo random number generator (default = 0)
+MovementModel.rngSeed = 1
+# World's size for Movement Models without implicit size (width, height; meters)
+MovementModel.worldSize = 4500, 3400
+# How long time to move hosts in the world before real simulation
+MovementModel.warmup = 1000
+
+
+## Reports - all report names have to be valid report classes
+
+# how many reports to load
+Report.nrofReports = 2
+# length of the warm up period (simulated seconds)
+Report.warmup = 0
+# default directory of reports (can be overridden per Report with output setting)
+Report.reportDir = reports/
+# Report classes to load
+Report.report1 = MessageStatsReport
+Report.report2 = ConnectivityONEReport
+
+## GUI settings
+
+# GUI underlay image settings
+GUI.UnderlayImage.fileName = background.png
+# Image offset in pixels (x, y)
+GUI.UnderlayImage.offset = 0, 0
+# Scaling factor for the image
+GUI.UnderlayImage.scale = 1
