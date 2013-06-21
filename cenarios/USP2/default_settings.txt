@@ -1,7 +1,7 @@
 ## Scenario settings
 
 # Vamos simular um dia na USP
-Scenario.name = USPDaySimulation
+Scenario.name = USP.Epidemic
 
 # Configuração padrão da simulação
 Scenario.simulateConnections = true

@@ -1,4 +1,4 @@
-Message stats for scenario USPDaySimulation
+Message stats for scenario USP.Epidemic
 sim_time: 86400.0000
 created: 24292
 started: 354338
