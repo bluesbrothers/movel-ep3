@@ -46,7 +46,9 @@ class ReportParser:
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print "TA ERRADO MANOLO - executa:"
-        print "\t./parseReports.py <caminho pra pasta dos reports> <arquivo pra salvar> <tipo do report>"
+        print "\t./parseReports.py <CaminhoDaPastaDosReports> <ArquivoPraSalvar> [TipoDoReport]"
+        print ""
+        print "\tTipoDoReport é opcional, e por padrão é 'MessageStatsReport'"
         exit()
     reportsFolder = sys.argv[1]
     filename = sys.argv[2]

@@ -7,7 +7,7 @@ Scenario.name = USPDaySimulation
 Scenario.simulateConnections = true
 Scenario.updateInterval = 1.0
 # Tempo de simulação em 30 mil segundos (pouco mais de 8h)
-Scenario.endTime = 30000
+Scenario.endTime = 86.4k
 # 4 grupos: dois de circular, um de carros e um de pedestres
 Scenario.nrofHostGroups = 4
 
@@ -38,7 +38,7 @@ Group.msgTtl = 300
 Group1.groupID = B
 Group1.bufferSize = 50M
 Group1.movementModel = MapRouteMovement
-Group1.routeFile = data/UspCircularRota1.wkt
+Group1.routeFile = ../cenarios/USP2/UspCircularRota1.wkt
 Group1.okMaps = 3
 Group1.routeType = 1
 Group1.waitTime = 10, 30
@@ -53,7 +53,7 @@ Group1.msgTtl = 120
 Group2.groupID = B'
 Group2.bufferSize = 50M
 Group2.movementModel = MapRouteMovement
-Group2.routeFile = data/UspCircularRota2.wkt
+Group2.routeFile = ../cenarios/USP2/UspCircularRota2.wkt
 Group2.okMaps = 4
 Group2.routeType = 1
 Group2.waitTime = 10, 30
@@ -96,36 +96,36 @@ MovementModel.warmup = 1000
 
 # Mapas para restringir a movimentação
 MapBasedMovement.nrofMapFiles = 5
-MapBasedMovement.mapFile1 = data/UspViasPrincipais.wkt
-MapBasedMovement.mapFile2 = data/UspViasSecundarias.wkt
-MapBasedMovement.mapFile3 = data/UspCircular1.wkt
-MapBasedMovement.mapFile4 = data/UspCircular2.wkt
-MapBasedMovement.mapFile5 = data/UspInstitutos.wkt
+MapBasedMovement.mapFile1 = ../cenarios/USP2/UspViasPrincipais.wkt
+MapBasedMovement.mapFile2 = ../cenarios/USP2/UspViasSecundarias.wkt
+MapBasedMovement.mapFile3 = ../cenarios/USP2/UspCircular1.wkt
+MapBasedMovement.mapFile4 = ../cenarios/USP2/UspCircular2.wkt
+MapBasedMovement.mapFile5 = ../cenarios/USP2/UspInstitutos.wkt
 # POIs são salas dentro de institutos na USP
-PointsOfInterest.poiFile1 = data/UspInstitutosPOI.wkt
+PointsOfInterest.poiFile1 = ../cenarios/USP2/UspInstitutosPOI.wkt
 
 # Arquivos de mensagens
 Events.nrof = 4
 Events1.class = ExternalEventsQueue
-Events1.filePath = data/broadCircular1.txt
+Events1.filePath = ../cenarios/USP2/broadCircular1.txt
 
 Events2.class = ExternalEventsQueue
-Events2.filePath = data/broadCircular2.txt
+Events2.filePath = ../cenarios/USP2/broadCircular2.txt
 
 Events3.class = ExternalEventsQueue
-Events3.filePath = data/broadStudents.txt
+Events3.filePath = ../cenarios/USP2/broadStudents.txt
 
 Events4.class = ExternalEventsQueue
-Events4.filePath = data/students.txt
+Events4.filePath = ../cenarios/USP2/students.txt
 
 # Relatório simples de conexões
 Report.nrofReports = 1
 Report.warmup = 0
 Report.reportDir = reports/
-Report.report1 = ConnectivityONEReport
+Report.report1 = MessageStatsReport
 
 # GUI settings
-GUI.UnderlayImage.fileName = data/UspMapa.jpg
+GUI.UnderlayImage.fileName = ../cenarios/USP2/UspMapa.jpg
 GUI.UnderlayImage.offset = -115, -77
 GUI.UnderlayImage.scale = 6
 GUI.UnderlayImage.rotate = 0
