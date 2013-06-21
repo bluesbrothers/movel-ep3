@@ -2,8 +2,7 @@
 Scenario.name = CentroSP
 Scenario.simulateConnections = true
 Scenario.updateInterval = 1
-# 43k ~= 12h
-Scenario.endTime = 1.2k
+Scenario.endTime = 3.6k
 Scenario.nrofHostGroups = 4
 
 # Configurações Padrão
