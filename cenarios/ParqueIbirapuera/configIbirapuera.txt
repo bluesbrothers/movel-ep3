@@ -10,7 +10,7 @@
 
 ########### configurações do cenário
 # Nome é exibido na GUI e utilizado para identificar os relatórios
-Scenario.name = EP2_scenario
+Scenario.name = ParqueIbirapuera
 Scenario.simulateConnections = true
 Scenario.updateInterval = 0.1
 # tempo em segundos
@@ -102,7 +102,7 @@ Group3.interface1 = bluetoothInterface
 Group4.groupID = PQ1_
 Group4.bufferSize = 32M
 #padrão de movimentação orientado por mapas
-Group4.movementModel = MovingClusterMovement
+Group4.movementModel = ClusterMovement
 #Localização do arquivo com as possibilidades de movimentação
 Group4.routeFile = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
 Group4.clusterRange = 6
@@ -121,7 +121,7 @@ Group4.interface2 = wifiInterface
 Group5.groupID = PQ2_
 Group5.bufferSize = 32M
 #padrão de movimentação orientado por mapas
-Group5.movementModel = MovingClusterMovement
+Group5.movementModel = ClusterMovement
 #Localização do arquivo com as possibilidades de movimentação
 Group5.routeFile = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
 Group5.clusterRange = 6
@@ -140,7 +140,7 @@ Group5.interface2 = wifiInterface
 Group6.groupID = PQ3_
 Group6.bufferSize = 32M
 #padrão de movimentação orientado por mapas
-Group6.movementModel = MovingClusterMovement
+Group6.movementModel = ClusterMovement
 #Localização do arquivo com as possibilidades de movimentação
 Group6.routeFile = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
 Group6.clusterRange = 6
@@ -199,7 +199,7 @@ Events3.prefix = M4
 ########### Configuração de Relatórios
 Report.nrofReports = 2
 Report.warmup = 0
-Report.reportDir = ../cenarios/ParqueIbirapuera/reports
+Report.reportDir = reports
 Report.report1 = MessageStatsReport
 Report.report2 = ConnectivityONEReport
 
