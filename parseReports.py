@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: UTF-8 -*-
 
 import sys
 import os
@@ -6,6 +7,8 @@ import os
 class ReportParser:
     def __init__(self, reportsFolder, filename, reportType):
         self.folder = reportsFolder
+        if not self.folder[-1] == "/":
+            self.folder += "/"
         self.out = open(filename, "w")
         self.type = reportType
 
