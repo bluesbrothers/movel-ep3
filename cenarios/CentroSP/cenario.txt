@@ -1,5 +1,5 @@
 ## CONFIGURAÇÕES DO CENÁRIO
-Scenario.name = EP2_300
+Scenario.name = CentroSP
 Scenario.simulateConnections = true
 Scenario.updateInterval = 1
 # 43k ~= 12h
@@ -8,7 +8,7 @@ Scenario.nrofHostGroups = 4
 
 # Configurações Padrão
 Group.movementModel = ShortestPathMapBasedMovement
-Group.router = PassiveRouter
+Group.router = DirectDeliveryRouter
 Group.bufferSize = 300k
 Group.transmitRange = 15
 Group.transmitSpeed = 32k
@@ -20,7 +20,7 @@ Group.nrofHosts = 100
 Group1.groupID = T-
 Group1.bufferSize = 5M
 Group1.movementModel = MapRouteMovement
-Group1.routeFile = EP2/trem.wkt
+Group1.routeFile = ../cenarios/CentroSP/trem.wkt
 Group1.routeType = 1
 Group1.waitTime = 60, 120
 Group1.speed = 2.7, 13.9
@@ -30,7 +30,7 @@ Group1.nrofHosts = 10
 Group2.groupID = M-
 Group2.bufferSize = 5M
 Group2.movementModel = MapRouteMovement
-Group2.routeFile = EP2/metro.wkt
+Group2.routeFile = ../cenarios/CentroSP/metro.wkt
 Group2.routeType = 1
 Group2.waitTime = 60, 1.2k
 Group2.speed = 2.7, 13.9
@@ -69,11 +69,11 @@ MovementModel.warmup = 1000
 MapBasedMovement.nrofMapFiles = 1
 
 ## POIS
-MapBasedMovement.mapFile1 = EP2/base.wkt
-PointsOfInterest.poiFile1 = EP2/POI1.wkt
-PointsOfInterest.poiFile2 = EP2/POI2.wkt
-PointsOfInterest.poiFile3 = EP2/POI3.wkt
-PointsOfInterest.poiFile4 = EP2/POI4.wkt
+MapBasedMovement.mapFile1 = ../cenarios/CentroSP/base.wkt
+PointsOfInterest.poiFile1 = ../cenarios/CentroSP/POI1.wkt
+PointsOfInterest.poiFile2 = ../cenarios/CentroSP/POI2.wkt
+PointsOfInterest.poiFile3 = ../cenarios/CentroSP/POI3.wkt
+PointsOfInterest.poiFile4 = ../cenarios/CentroSP/POI4.wkt
 
 
 ## REPORTS
@@ -81,13 +81,7 @@ Report.nrofReports = 1
 # length of the warm up period (simulated seconds)
 Report.warmup = 0
 Report.reportDir = reports/
-Report.report1 = ConnectivityONEReport
-
-
-## Default settings for some routers settings
-ProphetRouter.secondsInTimeUnit = 30
-SprayAndWaitRouter.nrofCopies = 6
-SprayAndWaitRouter.binaryMode = true
+Report.report1 = MessageStatsReport
 
 
 ## Optimization settings -- these affect the speed of the simulation
@@ -99,7 +93,7 @@ Optimization.randomizeUpdateOrder = true
 ## GUI settings
 
 # GUI underlay image settings
-GUI.UnderlayImage.fileName = EP2/map.png
+GUI.UnderlayImage.fileName = ../cenarios/CentroSP/map.png
 GUI.UnderlayImage.offset = 20, 8
 GUI.UnderlayImage.scale = 1
 GUI.UnderlayImage.rotate = 0
