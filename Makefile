@@ -1,9 +1,13 @@
 include names.mk
 
 alo:
-	@echo "Diga a role exata a ser executada entre 'pdf', 'runtests', 'entrega', 'clearreports', 'clean'"
+	@echo "Diga a role exata a ser executada entre 'pdf', 'runtests', 'parsereports', 'entrega', 'clearreports', 'clean'"
 
-pdf:
+parsereports:
+	@echo parsing reports...
+	@./parseReports.py one_1.4.1/reports/ documentation/reportsparsed.tex
+
+pdf: parsereports
 	@cd $(DOCDIR); make folderup
 
 $(ENTREGADIR):
