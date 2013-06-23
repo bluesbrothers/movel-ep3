@@ -1,8 +1,9 @@
-Scenario.name = Parking
+Scenario.name = Parking.Prophet
 Scenario.simulateConnections = true
 #Scenario.updateInterval = 0.1
 Scenario.updateInterval = 1
-Scenario.endTime = 3.6k
+#1 dia
+Scenario.endTime = 86.4k
 
 # "Bluetooth" interface for all nodes
 btInterface.type = SimpleBroadcastInterface
@@ -12,7 +13,7 @@ btInterface.transmitSpeed = 250k
 btInterface.transmitRange = 20
 
 Group.movementModel = StationaryMovement
-Group.router = FirstContactRouter
+Group.router = ProphetRouter
 Group.bufferSize = 5M
 Group.type = SimpleBroadcastInterface
 Group.nrofInterfaces = 1

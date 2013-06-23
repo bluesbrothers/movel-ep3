@@ -10,7 +10,7 @@
 
 ########### configurações do cenário
 # Nome é exibido na GUI e utilizado para identificar os relatórios
-Scenario.name = ParqueIbirapuera
+Scenario.name = ParqueIbirapuera.Prophet
 Scenario.simulateConnections = true
 Scenario.updateInterval = 0.1
 # tempo em segundos

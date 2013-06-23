@@ -1,4 +1,8 @@
 include names.mk
+include runUSP.mk
+include runEstacionamento.mk
+include runIbira.mk
+include runCentroSP.mk
 
 alo:
 	@echo "Diga a role exata a ser executada entre 'pdf', 'runtests', 'entrega', 'clearreports', 'clean'"
@@ -14,8 +18,16 @@ clearreports:
 	@rm -f $(REPORTSDIR)/*
 	@if [ ! -d $(REPORTSDIR) ]; then echo "criando diretorio novo '$(ENTREGaDIR)'"; mkdir $(REPORTSDIR); fi
 
-runtests: clearreports
-	@echo "Rodando as simuações"
+clearandrun:
+	$(MAKE) clearreports
+	$(MAKE) runAllTests
+
+runAllTests: runUsp runEstacionamento runIbira runCentroSP
+	@echo "Concluido"
+
+
+parsereports:
+	./parseReports.py one_1.4.1/reports documentation/reportsparsed.tex
 
 entrega: $(ENTREGADIR) pdf
 	@echo "Criando pacote de entrega '$(ENTREGATAR)'"

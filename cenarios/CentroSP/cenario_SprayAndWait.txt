@@ -1,13 +1,14 @@
 ## CONFIGURAÇÕES DO CENÁRIO
-Scenario.name = CentroSP
+Scenario.name = CentroSP.SprayAndWait
 Scenario.simulateConnections = true
 Scenario.updateInterval = 1
-Scenario.endTime = 3.6k
+#1 dia
+Scenario.endTime = 86.4k
 Scenario.nrofHostGroups = 4
 
 # Configurações Padrão
 Group.movementModel = ShortestPathMapBasedMovement
-Group.router = DirectDeliveryRouter
+Group.router = SprayAndWaitRouter
 Group.bufferSize = 300k
 Group.transmitRange = 15
 Group.transmitSpeed = 32k

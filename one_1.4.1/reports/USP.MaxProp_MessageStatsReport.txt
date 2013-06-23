@@ -1,0 +1,20 @@
+Message stats for scenario USP.MaxProp
+sim_time: 86400.0000
+created: 24946
+started: 325270
+relayed: 324396
+aborted: 874
+dropped: 191242
+removed: 151335
+delivered: 6479
+delivery_prob: 0.2597
+response_prob: 0.1680
+overhead_ratio: 49.0688
+latency_avg: 1441.7681
+latency_med: 1316.5000
+hopcount_avg: 2.8205
+hopcount_med: 3
+buffertime_avg: 1412.6092
+buffertime_med: 1081.0000
+rtt_avg: 3137.3417
+rtt_med: 3130.9000

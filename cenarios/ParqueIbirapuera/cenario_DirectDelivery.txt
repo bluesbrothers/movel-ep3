@@ -1,0 +1,208 @@
+#EQUIPE: Antonio Deusany , Luiz Carlos Vieira, Maciel Calebe Vidal, Rafael Perazzo Barbosa Mota
+#Padrão de movimentação no parque ibirapuera para os seguintes grupos:
+#1) Ciclista
+#2) Pedestres
+#3) Cooper People
+#4) Piquenique 1
+#5) Piquenique 2
+#6) Piquenique 3
+
+
+########### configurações do cenário
+# Nome é exibido na GUI e utilizado para identificar os relatórios
+Scenario.name = ParqueIbirapuera.DirectDelivery
+Scenario.simulateConnections = true
+Scenario.updateInterval = 0.1
+# tempo em segundos
+#1hora de simulação
+Scenario.endTime = 3.6k
+
+########### Definição das interfaces de comunicação
+
+# interface Bluetooth
+bluetoothInterface.type = SimpleBroadcastInterface
+bluetoothInterface.transmitSpeed = 250k
+bluetoothInterface.transmitRange = 10
+
+# interface wifi
+wifiInterface.type = SimpleBroadcastInterface
+wifiInterface.transmitSpeed = 5000k
+wifiInterface.transmitRange = 80
+
+########### Definição dos grupos
+Scenario.nrofHostGroups = 6
+
+#Configurações que, se não sobrescritas, serão válidas para todos os grupos
+Group.movementModel = MapBasedMovement
+Group.router = DirectDeliveryRouter
+Group.bufferSize = 10M
+#tempo de espera (movimentação)
+Group.waitTime = 0, 0
+#Quantidade e interface padrão
+Group.nrofInterfaces = 2
+Group.interface1 = bluetoothInterface
+Group.interface2 = wifiInterface
+#velocidade de movimentação
+Group.speed = 0, 0
+
+#Configurações para o grupo Ciclovia
+Group1.groupID = BK_
+Group1.bufferSize = 32M
+#padrão de movimentação orientado por mapas
+Group1.movementModel = MapBasedMovement
+#Localização do arquivo com as possibilidades de movimentação
+Group1.routeFile = ../cenarios/ParqueIbirapuera/mpCiclovia.wkt
+Group1.okMaps = 1
+Group1.routeType = 1
+#routeType 1: nós caminham um uma única direção (todos na mesma)
+#routeType 2: nós se movimentam em direções aleatorias no mapa (vai e volta, ping pong) 
+#não para
+Group1.waitTime = 0, 0
+Group1.speed = 2.77, 5.55
+Group1.nrofHosts = 50
+Group1.nrofInterfaces = 1
+Group1.interface1 = wifiInterface
+
+#Configurações para o grupo de Pedestres
+Group2.groupID = PE_
+Group2.bufferSize = 32M
+#padrão de movimentação orientado por mapas
+Group2.movementModel = MapBasedMovement
+#Localização do arquivo com as possibilidades de movimentação
+Group2.routeFile = ../cenarios/ParqueIbirapuera/mpPedestres.wkt
+Group2.okMaps = 2
+Group2.routeType = 1
+#até 5 minutos de tempo parado ao atingir o destino
+Group2.waitTime = 0, 300
+#3km/h a 5km/h
+Group2.speed = 0.83, 1.38
+Group2.nrofHosts = 100
+Group2.nrofInterfaces = 2
+Group2.interface1 = bluetoothInterface
+Group2.interface2 = wifiInterface
+
+#Configurações para o grupo Corredores (cooper)
+Group3.groupID = CO_
+Group3.bufferSize = 32M
+#padrão de movimentação orientado por mapas
+Group3.movementModel = MapBasedMovement
+#Localização do arquivo com as possibilidades de movimentação
+Group3.routeFile = ../cenarios/ParqueIbirapuera/mpCooper.wkt
+Group3.okMaps = 3
+Group3.routeType = 1
+#nao para
+Group3.waitTime = 0, 0
+#7 a 14 km/h
+Group3.speed = 1.94, 3.88
+Group3.nrofHosts = 50
+Group3.nrofInterfaces = 1
+Group3.interface1 = bluetoothInterface
+
+#Configurações para o grupo de Piquenique 1
+Group4.groupID = PQ1_
+Group4.bufferSize = 32M
+#padrão de movimentação orientado por mapas
+Group4.movementModel = ClusterMovement
+#Localização do arquivo com as possibilidades de movimentação
+Group4.routeFile = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
+Group4.clusterRange = 6
+Group4.okMaps = 4
+Group4.routeType = 1
+#até 5 minutos de tempo parado ao atingir o destino
+Group4.waitTime = 0, 300
+#3km/h a 5km/h
+Group4.speed = 0.83, 1.38
+Group4.nrofHosts = 10
+Group4.nrofInterfaces = 2
+Group4.interface1 = bluetoothInterface
+Group4.interface2 = wifiInterface
+
+#Configurações para o grupo de Piquenique 2
+Group5.groupID = PQ2_
+Group5.bufferSize = 32M
+#padrão de movimentação orientado por mapas
+Group5.movementModel = ClusterMovement
+#Localização do arquivo com as possibilidades de movimentação
+Group5.routeFile = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
+Group5.clusterRange = 6
+Group5.okMaps = 4
+Group5.routeType = 1
+#até 5 minutos de tempo parado ao atingir o destino
+Group5.waitTime = 0, 300
+#3km/h a 5km/h
+Group5.speed = 0.83, 1.38
+Group5.nrofHosts = 5
+Group5.nrofInterfaces = 2
+Group5.interface1 = bluetoothInterface
+Group5.interface2 = wifiInterface
+
+#Configurações para o grupo de Piquenique 1
+Group6.groupID = PQ3_
+Group6.bufferSize = 32M
+#padrão de movimentação orientado por mapas
+Group6.movementModel = ClusterMovement
+#Localização do arquivo com as possibilidades de movimentação
+Group6.routeFile = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
+Group6.clusterRange = 6
+Group6.okMaps = 4
+Group6.routeType = 1
+#até 5 minutos de tempo parado ao atingir o destino
+Group6.waitTime = 0, 300
+#3km/h a 5km/h
+Group6.speed = 0.83, 1.38
+Group6.nrofHosts = 5
+Group6.nrofInterfaces = 2
+Group6.interface1 = bluetoothInterface
+Group6.interface2 = wifiInterface
+
+########### Movimento baseado em mapa - Configuração
+MapBasedMovement.nrofMapFiles = 4
+MapBasedMovement.mapFile1 = ../cenarios/ParqueIbirapuera/mpCiclovia.wkt
+MapBasedMovement.mapFile2 = ../cenarios/ParqueIbirapuera/mpPedestres.wkt
+MapBasedMovement.mapFile3 = ../cenarios/ParqueIbirapuera/mpCooper.wkt
+MapBasedMovement.mapFile4 = ../cenarios/ParqueIbirapuera/mpPiquenique.wkt
+
+########### Configuração do gerador de eventos - Criar mensagens a enviar
+# Quantidade de eventos
+Events.nrof = 3
+# Classe do evento mensagem de texto curta
+Events1.class = MessageEventGenerator
+# Intervalo de criação  (mensagens curtas em intervalos entre 1min e 2min)
+Events1.interval = 2,4
+# Tamanho das mensagens  (entre 10 e 50Kb)
+Events1.size = 10k,50k
+# Quais hosts recebem a mensagem
+Events1.hosts = 0,219
+# Prefixo do ID da mensagem
+Events1.prefix = M1
+
+# Classe do evento mensagem de envio de foto
+Events2.class = MessageEventGenerator
+# Intervalo de criação  (min,max em segundos)
+Events2.interval = 40,50
+# Tamanho das mensagens  (500kB - 1MB)
+Events2.size = 500k,1M
+Events2.hosts = 0,219
+# Prefixo do ID da mensagem
+Events2.prefix = M2
+
+# Classe do evento mensagem informativa
+Events3.class = MessageEventGenerator
+# Intervalo de criação  (min,max em segundos)
+Events3.interval = 30,45
+# Tamanho das mensagens  (500kB - 1MB)
+Events3.size = 50k,200k
+Events3.hosts = 0,219
+# Prefixo do ID da mensagem
+Events3.prefix = M4
+
+########### Configuração de Relatórios
+Report.nrofReports = 1
+Report.warmup = 0
+Report.reportDir = reports
+Report.report1 = MessageStatsReport
+
+########### Mapa na tela
+GUI.UnderlayImage.fileName = ../cenarios/ParqueIbirapuera/mapa-ibirapuera.png
+GUI.UnderlayImage.offset = -485, -270
+GUI.UnderlayImage.scale = 1

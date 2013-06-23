@@ -14,13 +14,25 @@ class ReportParser:
 
     def Execute(self):
         reports = os.listdir(self.folder)
+        self.PrintCommands()
         for report in reports:
             self.CheckReport(report)
+
+    def PrintCommands(self):
+        importline = "\usepackage{etoolbox}"
+        cmd1 = "\\newcommand\\createreportval[3]{\\csdef{rv-#1-#2}{#3}}"
+        cmd2  ="\\newcommand\\reportval[2]{\\csuse{rv-#1-#2}}"
+        self.out.write(importline + "\n" + cmd1 + "\n" + cmd2 + "\n\n")
 
     def CheckReport(self, report):
         rName, rType = self.GetReportHeader(report)
         if rType != self.type:  return
         data = self.GetReportData(report)
+
+        showName = rName.replace('.', " (\\textit{") + '})'
+
+        line = "\createreportval{%s}{%s}{%s}" % (rName, 'name', showName)
+        self.out.write(line + "\n")
         
         for attr, value in data.items():
             line = "\createreportval{%s}{%s}{%s}" % (rName, attr, value)

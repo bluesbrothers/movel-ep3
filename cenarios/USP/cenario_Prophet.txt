@@ -1,37 +1,37 @@
 ## Scenario settings
 
 # Vamos simular um dia na USP
-Scenario.name = USP.SprayAndWait
+Scenario.name = USP.Prophet
 
-# ConfiguraÁ„o padr„o da simulaÁ„o
+# Configura√ß√£o padr√£o da simula√ß√£o
 Scenario.simulateConnections = true
 Scenario.updateInterval = 1.0
-# Tempo de simulaÁ„o em 30 mil segundos (pouco mais de 8h)
+# Tempo de simula√ß√£o em 30 mil segundos (pouco mais de 8h)
 Scenario.endTime = 86.4k
 # 4 grupos: dois de circular, um de carros e um de pedestres
 Scenario.nrofHostGroups = 4
 
 
 
-# "Bluetooth", interface padr„o dos pedestres
+# "Bluetooth", interface padr√£o dos pedestres
 btInterface.type = SimpleBroadcastInterface
 btInterface.transmitSpeed = 250k
-# Dist‚ncia m·xima de 10 metros
+# Dist√¢ncia m√°xima de 10 metros
 btInterface.transmitRange = 10
 
-# "Long range", interface padr„o de veÌculos
+# "Long range", interface padr√£o de ve√≠culos
 lrInterface.type = SimpleBroadcastInterface
 lrInterface.transmitSpeed = 250k
-# Dist‚ncia m·xima de 100 metros
+# Dist√¢ncia m√°xima de 100 metros
 lrInterface.transmitRange = 100
 
 
 
-# DefiniÁıes comuns aos grupos
+# Defini√ß√µes comuns aos grupos
 Group.movementModel = ShortestPathMapBasedMovement
-Group.router = SprayAndWaitRouter
+Group.router = ProphetRouter
 Group.bufferSize = 5M
-# Tempo de vida padr„o de 5h para mensagens
+# Tempo de vida padr√£o de 5h para mensagens
 Group.msgTtl = 300
 
 # Circulares 1
@@ -94,14 +94,14 @@ MovementModel.worldSize = 5000, 3500
 MovementModel.rngSeed = 42
 MovementModel.warmup = 1000
 
-# Mapas para restringir a movimentaÁ„o
+# Mapas para restringir a movimenta√ß√£o
 MapBasedMovement.nrofMapFiles = 5
 MapBasedMovement.mapFile1 = ../cenarios/USP/UspViasPrincipais.wkt
 MapBasedMovement.mapFile2 = ../cenarios/USP/UspViasSecundarias.wkt
 MapBasedMovement.mapFile3 = ../cenarios/USP/UspCircular1.wkt
 MapBasedMovement.mapFile4 = ../cenarios/USP/UspCircular2.wkt
 MapBasedMovement.mapFile5 = ../cenarios/USP/UspInstitutos.wkt
-# POIs s„o salas dentro de institutos na USP
+# POIs s√£o salas dentro de institutos na USP
 PointsOfInterest.poiFile1 = ../cenarios/USP/UspInstitutosPOI.wkt
 
 # Arquivos de mensagens
@@ -118,7 +118,7 @@ Events3.filePath = ../cenarios/USP/broadStudents.txt
 Events4.class = ExternalEventsQueue
 Events4.filePath = ../cenarios/USP/students.txt
 
-# RelatÛrio simples de conexıes
+# Relat√≥rio simples de conex√µes
 Report.nrofReports = 1
 Report.warmup = 0
 Report.reportDir = reports/
