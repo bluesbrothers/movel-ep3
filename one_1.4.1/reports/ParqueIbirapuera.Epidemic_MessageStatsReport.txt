@@ -1,0 +1,20 @@
+Message stats for scenario ParqueIbirapuera.Epidemic
+sim_time: 3600.1000
+created: 1624
+started: 1842306
+relayed: 1835741
+aborted: 6468
+dropped: 1719741
+removed: 0
+delivered: 1022
+delivery_prob: 0.6293
+response_prob: 0.0000
+overhead_ratio: 1795.2241
+latency_avg: 235.1795
+latency_med: 71.3000
+hopcount_avg: 7.6751
+hopcount_med: 6
+buffertime_avg: 183.4433
+buffertime_med: 109.2000
+rtt_avg: NaN
+rtt_med: NaN

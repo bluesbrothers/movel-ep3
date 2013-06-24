@@ -1,0 +1,20 @@
+Message stats for scenario ParqueIbirapuera.Prophet
+sim_time: 3600.1000
+created: 1624
+started: 1854966
+relayed: 1847974
+aborted: 6896
+dropped: 1757166
+removed: 0
+delivered: 1037
+delivery_prob: 0.6385
+response_prob: 0.0000
+overhead_ratio: 1781.0386
+latency_avg: 149.4107
+latency_med: 76.8000
+hopcount_avg: 6.4986
+hopcount_med: 5
+buffertime_avg: 146.9743
+buffertime_med: 70.5000
+rtt_avg: NaN
+rtt_med: NaN

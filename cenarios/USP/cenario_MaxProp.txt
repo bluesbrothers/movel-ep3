@@ -6,8 +6,8 @@ Scenario.name = USP.MaxProp
 # Configuração padrão da simulação
 Scenario.simulateConnections = true
 Scenario.updateInterval = 1.0
-# Tempo de simulação em 30 mil segundos (pouco mais de 8h)
-Scenario.endTime = 86.4k
+#2 horas
+Scenario.endTime = 7.2k
 # 4 grupos: dois de circular, um de carros e um de pedestres
 Scenario.nrofHostGroups = 4
 
