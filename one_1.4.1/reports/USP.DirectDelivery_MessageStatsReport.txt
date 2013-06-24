@@ -1,0 +1,20 @@
+Message stats for scenario USP.DirectDelivery
+sim_time: 86400.0000
+created: 22467
+started: 3014
+relayed: 3013
+aborted: 1
+dropped: 22353
+removed: 0
+delivered: 3013
+delivery_prob: 0.1341
+response_prob: 0.0646
+overhead_ratio: 0.0000
+latency_avg: 1478.3780
+latency_med: 1064.3000
+hopcount_avg: 1.0000
+hopcount_med: 1
+buffertime_avg: 3879.7628
+buffertime_med: 3574.1000
+rtt_avg: 1717.5542
+rtt_med: 1723.0000

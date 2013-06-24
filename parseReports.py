@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: UTF-8 -*-
 
 import sys
 import os
@@ -6,18 +7,32 @@ import os
 class ReportParser:
     def __init__(self, reportsFolder, filename, reportType):
         self.folder = reportsFolder
+        if not self.folder[-1] == "/":
+            self.folder += "/"
         self.out = open(filename, "w")
         self.type = reportType
 
     def Execute(self):
         reports = os.listdir(self.folder)
+        self.PrintCommands()
         for report in reports:
             self.CheckReport(report)
+
+    def PrintCommands(self):
+        importline = "\usepackage{etoolbox}"
+        cmd1 = "\\newcommand\\createreportval[3]{\\csdef{rv-#1-#2}{#3}}"
+        cmd2  ="\\newcommand\\reportval[2]{\\csuse{rv-#1-#2}}"
+        self.out.write(importline + "\n" + cmd1 + "\n" + cmd2 + "\n\n")
 
     def CheckReport(self, report):
         rName, rType = self.GetReportHeader(report)
         if rType != self.type:  return
         data = self.GetReportData(report)
+
+        showName = rName.replace('.', " (\\textit{") + '})'
+
+        line = "\createreportval{%s}{%s}{%s}" % (rName, 'name', showName)
+        self.out.write(line + "\n")
         
         for attr, value in data.items():
             line = "\createreportval{%s}{%s}{%s}" % (rName, attr, value)
@@ -46,7 +61,9 @@ class ReportParser:
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print "TA ERRADO MANOLO - executa:"
-        print "\t./parseReports.py <caminho pra pasta dos reports> <arquivo pra salvar> <tipo do report>"
+        print "\t./parseReports.py <CaminhoDaPastaDosReports> <ArquivoPraSalvar> [TipoDoReport]"
+        print ""
+        print "\tTipoDoReport é opcional, e por padrão é 'MessageStatsReport'"
         exit()
     reportsFolder = sys.argv[1]
     filename = sys.argv[2]

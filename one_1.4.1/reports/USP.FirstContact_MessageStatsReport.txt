@@ -1,0 +1,20 @@
+Message stats for scenario USP.FirstContact
+sim_time: 86400.0000
+created: 22592
+started: 188297
+relayed: 187705
+aborted: 592
+dropped: 19496
+removed: 187705
+delivered: 2999
+delivery_prob: 0.1327
+response_prob: 0.0246
+overhead_ratio: 61.5892
+latency_avg: 1648.8626
+latency_med: 1329.3000
+hopcount_avg: 8.6519
+hopcount_med: 5
+buffertime_avg: 374.0239
+buffertime_med: 87.8000
+rtt_avg: 1589.2041
+rtt_med: 1217.4000

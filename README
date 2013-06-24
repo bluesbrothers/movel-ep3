@@ -15,8 +15,12 @@ No relatório encontram-se:
  * análises feitas em cima dos resultados.
  * reports gerados
 
+Metodologia:
+  Escolhemos cenários e padrões de roteamento que desejávamos testar em cada cenário. No final,
+  listamos todos os protocolos de roteamento que apareceram e testamos cada cenário para todos.
+
 CENÁRIOS ESCOLHIDOS:
- 1) ParqueIbirapuera
+  1) ParqueIbirapuera
    Tempo de simulação: 3600s (1h)
    Grupos: 6
      G1 - Ciclistas
@@ -26,9 +30,9 @@ CENÁRIOS ESCOLHIDOS:
      G5 - Piquenique 2
      G6 - Piquenique 3
    Padrões de movimentação usados: MapBasedMovement, ClusterMovement
-   Padrões de roteamento usados: ProphetRouter
+   Padrões de roteamento interessantes: ProphetRouter, MaxPropRouter
 
-  2) USP2
+  2) USP.SprayAndPray
     Tempo de simulação: 86400s (24h)
     Grupos: 4
       G1 - Circular 1
@@ -37,10 +41,37 @@ CENÁRIOS ESCOLHIDOS:
       G4 - Pedestres
     Padrões de movimentação usados: ShortestPathMapBasedMovement, 
                               MapRouteMoviment
-    Padrões de roteamento usados: EpidemicRouter
+    Padrões de roteamento interessantes: SprayAndPrayRouter, ProphetRouter, EpidemicRouter
+    
+  3) Estacionamento
+    Tempo de simulação: 3600s (1h)
+    Grupos: 559
+      G1 - Carros
+      G2...559 - Vagas
+    Padrões de movimentação usados: CarMovement, StationaryMovement
+    Padrões de roteamento interessantes: FirstContactRouter
+    
+  4) CentroSP
+    Tempo de simulação: 3600s (1h)
+    Grupos: 4
+      G1 - Trem
+      G2 - Metro
+      G3 - Pedestres
+      G4 - Carros
+    Padrões de movimentação usados: ShortestPathMapBasedMovement, 
+                              MapRouteMoviment
+    Padrões de roteamento interessantes: DirectDeliveryRouter, EpidemicRouter
 
+LISTA DE PADRÕES DE ROTEAMENTO:
+  1) ProphetRouter
+  2) MaxPropRouter
+  3) SprayAndPrayRouter
+  4) EpidemicRouter
+  5) FirstContactRouter
+  6) DirectDeliveryRouter
 
 SIGNIFICADO DOS VALORES NOS REPORTS (do report padrão, MessageStatsReport):
+
 sim_time: tempo que a simulacao ficou rodando (em segundos?)
 created: numero de mensagens criadas
 started: numero de mensagens que começaram a ser transferidas
