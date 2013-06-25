@@ -74,36 +74,44 @@ Email: rewasvat@linux.ime.usp.br}}
 
 
 \section{Introdução}
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.7 and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
- 
-\hfill January 11, 2007
+O \emph{The One} é um simulador de DTNs. Neste trabalho, apresentaremos resultados de simulações em quatro cenários diferentes, com padrão de movimentação e interfaces de comunicação fixadas para cada cenário e variando o protocolo de roteamento.
 
 \subsection{Motivação}
-Escolhemos inicialmente 4 cenários que nos parecessem interessantes. São eles:
+\label{sec:intro:motivacao}
+Escolhemos inicialmente 4 cenários que nos parecessem interessantes. Para cada cenário, escolhemos alguns protocolos de roteamento que gostaríamos de testar seu desempenho. Listamos a seguir os cenários, os protocolos escolhidos e uma breve explicação de suas escolhas.
 
 \subsubsection{CentroSP}
-Julgamos esse cenário interessante por X.
+Julgamos esse cenário interessante por ser o único de nossos cenários que fazia sentido simular para um tempo grande (24 horas). Afinal, São Paulo não para.
+
+DirectDeliveryRouter: Pq sim.
+
+EpidemicRouter: Pq sim.
 
 \subsubsection{USP}
 Não poderíamos deixar de incluir nossa segunda casa nos cenários. Este é o cenário "USP2" disponibilizado.
 
+SprayAndWaitRouter: Nome engra.
+ProphetRouter: alo mamae? Achei o profeta!
+EpidemicRouter: gosto de espalhar doenças
+
 \subsubsection{Estacionamento}
-Nos interessamos pelas muitas vagas imóveis e gostaríamos de ver como as transmissões eram feitas no protocolo escolhido dado no exemplo e poder comparar com os demais protocolos escolhidos nesse trabalho.
+Nos interessamos pelas muitas vagas imóveis e gostaríamos de ver como as transmissões eram feitas nesse caso e poder comparar com os demais cenários desse trabalho, que possuem nós se movimentando intensamente.
+
+FirstContactRouter: parecia fazer sentido transmitir para o primeiro que eu encostar num estacionamento com vagas imóveis.
 
 \subsubsection{ParqueIbirapuera}
-O cenário do Parque do Ibirapuera parece bem completo, tendo 6 grupos com características bem interessantes. Tanto que, para ser viável, não pudemos usar o tempo de simulação de 1 dia, mas sim de apenas 1 hora, pois este cenário era bem complexo e sua execução, bem mais demorada.
+O cenário do Parque do Ibirapuera parece bem completo, tendo 6 grupos com características bem interessantes. Tanto que, para ser viável, não pudemos usar um tempo de simulação maior, mas apenas de 1 hora, pois este cenário era bem complexo e sua execução, bem mais demorada.
+
+ProphetRouter: O profeta. Parece até nome de novela.
+MaxPropRouter: Vixi...
 
 
 \subsection{Fundamentação}
-mimimi cacaca
+mimimi cacaca. Precisamos definir cada protocolo de roteamento de maneira sucinta.
 
 \section{Metodologia dos testes}
-Olha...
+Escolhemos primeiro quatro cenários e listamos protocolos de roteamento que achamos interessantes, como explicado em \ref{sec:intro:motivacao}. Decidimos, então, simular cada cenário para cada todos os protocolos que apareceram em qualquer das listas. Assim, testamos cada cenário para os seguintes protocolos: DirectDeliveryRouter, EpidemicRouter, FirstContactRouter, MaxPropRouter, ProphetRouter e SprayAndWaitRouter.
+
 
 \section{Resultados obtidos}
 Mais mimimi teste \reportval{USP.Prophet}{name}, \reportval{USP.SprayAndWait}{name} e \reportval{Parking.MaxProp}{name}
