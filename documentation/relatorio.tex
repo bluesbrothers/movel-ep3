@@ -39,7 +39,7 @@
 \input{reportsparsed}
 
 \begin{document}
-\title{MAC0463/5743 - Computação Móvel \\ Exercício Programa 2 - The One}
+\title{MAC0463/5743 - Computação Móvel \\ Exercício Programa 3 - The One}
 
 
 % author names and affiliations
@@ -78,36 +78,75 @@ O \emph{The One} é um simulador de DTNs. Neste trabalho, apresentaremos resulta
 
 \subsection{Motivação}
 \label{sec:intro:motivacao}
-Escolhemos inicialmente 4 cenários que nos parecessem interessantes. Para cada cenário, escolhemos alguns protocolos de roteamento que gostaríamos de testar seu desempenho. Listamos a seguir os cenários, os protocolos escolhidos e uma breve explicação de suas escolhas.
+Escolhemos inicialmente 4 cenários que nos parecessem interessantes. Para cada cenário, escolhemos alguns protocolos de roteamento que gostaríamos de testar seu desempenho. Juntando todos os protocolos escolhidos tivemos uma lista de seis protocolos de roteamento, e rodamos simulações dos cenários para cada protocolo na lista. Listamos a seguir os cenários, os protocolos escolhidos e uma breve explicação de suas escolhas.
 
 \subsubsection{CentroSP}
 Julgamos esse cenário interessante por ser o único de nossos cenários que fazia sentido simular para um tempo grande (24 horas). Afinal, São Paulo não para.
-
-DirectDeliveryRouter: Pq sim.
-
-EpidemicRouter: Pq sim.
+\begin{itemize}
+\item DirectDeliveryRouter: Pela curiosidade de ver o funcionamento desse protocolo num ambiente com muitas pessoas se movimentando.
+\item EpidemicRouter: Queríamos ver o funcionamento de um protocolo epidêmico nesse ambiente onde há uma grande
+movimentação de pessoas.
+\end{itemize}
 
 \subsubsection{USP}
 Não poderíamos deixar de incluir nossa segunda casa nos cenários. Este é o cenário "USP2" disponibilizado.
-
-SprayAndWaitRouter: Nome engra.
-ProphetRouter: alo mamae? Achei o profeta!
-EpidemicRouter: gosto de espalhar doenças
+\begin{itemize}
+\item SprayAndWaitRouter e ProphetRouter: Escolhas aleatórias de protocolos amplamente usados baseados em artigos entre as possibilidades presentes no \emph{The One}.
+\item EpidemicRouter: Queríamos ver o funcionamento de um protocolo epidêmico nesse ambiente onde há uma grande
+movimentação de pessoas.
+\end{itemize}
 
 \subsubsection{Estacionamento}
 Nos interessamos pelas muitas vagas imóveis e gostaríamos de ver como as transmissões eram feitas nesse caso e poder comparar com os demais cenários desse trabalho, que possuem nós se movimentando intensamente.
-
-FirstContactRouter: parecia fazer sentido transmitir para o primeiro que eu encostar num estacionamento com vagas imóveis.
+\begin{itemize}
+\item FirstContactRouter: parecia fazer sentido transmitir para o primeiro que eu encostar num estacionamento com vagas imóveis.
+\end{itemize}
 
 \subsubsection{ParqueIbirapuera}
 O cenário do Parque do Ibirapuera parece bem completo, tendo 6 grupos com características bem interessantes. Tanto que, para ser viável, não pudemos usar um tempo de simulação maior, mas apenas de 1 hora, pois este cenário era bem complexo e sua execução, bem mais demorada.
-
-ProphetRouter: O profeta. Parece até nome de novela.
-MaxPropRouter: Vixi...
-
+\begin{itemize}
+\item ProphetRouter e MaxPropRouter: Escolhas aleatórias de protocolos amplamente usados baseados em artigos entre as possibilidades presentes no \emph{The One}.
+\end{itemize}
 
 \subsection{Fundamentação}
-mimimi cacaca. Precisamos definir cada protocolo de roteamento de maneira sucinta.
+Segue uma explicação sobre os protocolos de roteamento usados:
+
+\subsubsection{DirectDeliveryRouter}
+É um protocolo ingênuo que só transmite uma mensagem a um nó se o nó for o destino da mensagem. Dessa forma, as mensagens fazem um único \textit{hop} (salto) para chegar onde devem chegar, mas levam mais tempo para sair do nó de origem pois devem esperar o nó de origem e o de destino estarem em alcançe para conseguir se comunicar.
+
+\subsubsection{EpidemicRouter}
+É um protocolo ingênuo baseado na \textquotedblleft enchente\textquotedblright  de mensagens na rede. Um nó continuamente copia e transmite uma mensagem para contatos que ainda não possuam uma cópia dessa mensagem.
+Dessa forma é meio garantido que as mensagens cheguem onde devem chegar, mas isso consome muitos recursos e pode causar
+muito congestionamento na rede.
+
+\subsubsection{FirstContactRouter}
+É um protocolo ingênuo de roteamento que transmite uma mensagem para o primeiro nó que ele encontra. Isso confere algumas propriedades estranhas para o protocolo, pois o funcionamento dele é altamente dependente do protocolo de  comunicação e dos padrões de movimento dos nós.
+
+\subsubsection{MaxPropRouter}
+Foi baseado no artigo TAL.
+\subsubsection{ProphetRouter}
+Foi baseado no artigo \textit{Probabilistic routing in intermittently connected networks by Anders Lindgren et al.}
+ 
+Esse protocolo tenta explorar a não-aleatoridade de encontros no mundo real mantendo um conjunto de probabilidade de entregar com sucesso uma mensagem para cada destino na DTN. Ele usa um algoritmo adaptativo para determinar a probabilidade de um nó conseguir entregar uma mensagem, e altera as probabilidades a cada encontro de acordo com algumas regras:
+\begin{itemize}
+  \item Se a probabilidade para um destino não é conhecida, é assumida como zero;
+  \item Quando um nó A encontra outro nó B, a probabilidade de B é aumentada;
+  \item Quando um nó A encontra outro nó B, a probabilidade de todos destinos diferentes de B são \textquotedblleft envelhecidas\textquotedblright ;
+  \item Quando um nó A encontra outro nó B, eles trocam probabilidades, usando a propriedade transitiva das probabilidades para atualizar os valores de destinos D para qual B tem um valor na suposição que A provavelmente vai encontrar B de novo;
+\end{itemize}
+
+O protocolo então só copia uma mensagem e transmite para outro nó se aquele nó tiver uma probabilidade maior de entregar a mensagem.
+
+\subsubsection{SprayAndWaitRouter}
+Foi baseado no artigo \textit{Spray and Wait: An Efficient Routing Scheme for Intermittently Connected Mobile Networks by Thrasyvoulos Spyropoulus et al.}
+
+Esse protocolo tenta misturar os benefícios de protocolos de roteamento baseados em replicação de mensagem com protocolos baseados em encaminhamento. Ele é composto por duas fases:
+\begin{itemize}
+  \item Fase de \textit{Spray}: responsabilidade do nó de origem, essa é a fase inicial e consiste em fazer N cópias da mensagem e transmitir cada cópia para um nó diferente.
+  \item Fase de \textit{Wait} (Espera): é como fica o nó de origem depois de terminar a Fase de \textit{Spray}, ou os nós ao receberem uma mensagem. Eles simplesmente esperam encontrar o destino da mensagem para entregá-la diretamente.
+\end{itemize}
+
+Existem dois métodos de protocolo: o padrão e o binário. A única diferença entre eles é como as N cópias da mensagem são distribuídas durante a Fase de \textit{Spray}. Pelo que vimos, a implementação desse protocolo no \emph{The One} aceita ambos métdos, mas nós só usamos o padrão.
 
 \section{Metodologia dos testes}
 Escolhemos primeiro quatro cenários e listamos protocolos de roteamento que achamos interessantes, como explicado em \ref{sec:intro:motivacao}. Decidimos, então, simular cada cenário para cada todos os protocolos que apareceram em qualquer das listas. Assim, testamos cada cenário para os seguintes protocolos: DirectDeliveryRouter, EpidemicRouter, FirstContactRouter, MaxPropRouter, ProphetRouter e SprayAndWaitRouter.
@@ -119,6 +158,7 @@ Mais mimimi teste \reportval{USP.Prophet}{name}, \reportval{USP.SprayAndWait}{na
 \section{Conclusões}
 Concluímos que nada sabemos.
 
+\include{tableUSP}
 
 % For figures, \caption should occur after the \includegraphics.
 % Note that IEEEtran v1.7 and later has special internal code that

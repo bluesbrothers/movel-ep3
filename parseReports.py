@@ -6,11 +6,14 @@ import os
 import numpy as np
 
 class ReportParser:
-    def __init__(self, reportsFolder, filename, reportType):
+    def __init__(self, reportsFolder, outsFolder, reportType):
         self.folder = reportsFolder
         if not self.folder[-1] == "/":
             self.folder += "/"
-        self.out = open(filename, "w")
+        self.outFolder = outsFolder
+        if not self.outFolder[-1] == "/":
+            self.outFolder += "/"
+        self.out = open(self.outFolder+"reportsparsed.tex", "w")
         self.type = reportType
         self.rdata = {}
 
@@ -34,11 +37,11 @@ class ReportParser:
 
         showName = rName.replace('.', " (\\textit{") + '})'
 
-        line = "\createreportval{%s}{%s}{%s}" % (rName, 'name', showName)
+        line = "\\createreportval{%s}{%s}{%s}" % (rName, 'name', showName)
         self.out.write(line + "\n")
         
         for attr, value in data.items():
-            line = "\createreportval{%s}{%s}{%s}" % (rName, attr, value)
+            line = "\\createreportval{%s}{%s}{%s}" % (rName, attr, value)
             self.out.write(line + "\n")
 
     def GetReportHeader(self, report):
@@ -79,13 +82,13 @@ class ReportParser:
                 for attrK, attrV in values.items():
                     if attrV != "NaN":
                         attrData[attrK].append(float(attrV))
-
-            self.out.write( "\n\\newcommand{tableStats%s} { \n" % (rName) )
-            self.out.write( "\\begin{table}{c|c c c c}\n" )
+            tableOut = open(self.outFolder+"table"+rName+".tex", "w")
+            tableOut.write( "\\begin{tabular}{c|c c c c}\n" )
             for attrKey, values in attrData.items():
+                attrKey = attrKey.replace("_", "\\_")
                 if len(values) <= 0:
                     #print "\t%s: all values are NaN" % (attrKey)
-                    line = "\t%s & NaN & NaN & NaN & NaN \\\\" % (attrKey)
+                    line = "  %s & NaN & NaN & NaN & NaN \\\\" % (attrKey)
                 else:
                     vmin = np.min(values)
                     vmax = np.max(values)
@@ -94,10 +97,10 @@ class ReportParser:
                     avg = np.mean(values)
                     stddev = np.std(values)
                     #print "\t%s: min=(%s, %s), max=(%s, %s), media=(%s), desvio_padrao=(%s)" % (attrKey, vmin, minName, vmax, maxName, avg, stddev)
-                    line = "\t%s & %s (%s) & %s (%s) & %s & %s \\\\" % (attrKey, vmin, minName, vmax, maxName, avg, stddev)
-                self.out.write(line+"\n")
-            self.out.write( "\\end{table}\n" )
-            self.out.write( "}\n" )
+                    line = "  %s & %s (%s) & %s (%s) & %s & %s \\\\" % (attrKey, vmin, minName, vmax, maxName, avg, stddev)
+                tableOut.write(line+"\n")
+            tableOut.write( "\\end{tabular}\n" )
+            tableOut.close()
 
     def Close(self):
         self.out.close()
@@ -106,16 +109,16 @@ class ReportParser:
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print "TA ERRADO MANOLO - executa:"
-        print "\t./parseReports.py <CaminhoDaPastaDosReports> <ArquivoPraSalvar> [TipoDoReport]"
+        print "\t./parseReports.py <CaminhoDaPastaDosReports> <CaminhoDaPastaPraSalvarCoisas> [TipoDoReport]"
         print ""
         print "\tTipoDoReport é opcional, e por padrão é 'MessageStatsReport'"
         exit()
     reportsFolder = sys.argv[1]
-    filename = sys.argv[2]
+    outsFolder = sys.argv[2]
     if len(sys.argv) >= 4:
         reportType = sys.argv[3]
     else:
         reportType = "MessageStatsReport"
-    parser = ReportParser(reportsFolder, filename, reportType)
+    parser = ReportParser(reportsFolder, outsFolder, reportType)
     parser.Execute()
     parser.Close()
