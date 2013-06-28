@@ -172,27 +172,29 @@ Escolhemos primeiro quatro cenários e listamos protocolos de roteamento que ach
 
 
 \section{Resultados obtidos}
-Nesta seção abordaremos os resultados obtidos, fazendo uma análise geral do significado de tais resultados. 
+Nesta seção abordaremos os resultados obtidos, fazendo uma análise geral do significado de tais resultados. Todos os cenários não são de nossa autoria e, portanto 
 
 \subsection{Resultados em comum}
 \label{sec:resultados:comum}
 Algumas coisas são um tanto quanto óbvias, como o número mímino de \textit{hops} é sempre conseguido ao se utilizar \texttt{DirectDelivery}, assim como o mínimo da taxa de \textit{overhead}, pois neste protocolo só existe transferência do nó emissor para o receptor final.
 
-Em todos os nossos testes, o \textit{FirstContact} apresentou o pior resultado em número de \textit{hops}. O que não é tão estranho a julgar que não há preocupação alguma em garantir que a transmissão está aproximando a mensagem do destinatário. Imagine o seguinte cenário: dois carros estão viajando em comboio. O carro de trás deseja enviar uma mensagem para o carro da frente e o protocolo de roteamento é o \textit{First Contact}. E por azar, ele se conecta com um carro que viaja no sentido contrário e passa a mensagem para ele. E, por azar novamente, esse carro passa para o carro à frente dele. E dessa forma a mensagem está cada vez mais distante do destinatário, sem quaisquer evidências de que seja provável a entrega. E apesar disso sugerir que ele terá uma das piores taxas de entrega, isso não é sempre verdade.
+Em todos os nossos testes, o \textit{FirstContact} apresentou o pior resultado em número de \textit{hops}. O que não é tão estranho a julgar que não há preocupação alguma em garantir que a transmissão está aproximando a mensagem do destinatário. Imagine o seguinte cenário: dois carros estão viajando em comboio. O carro de trás deseja enviar uma mensagem para o carro da frente e o protocolo de roteamento é o \textit{FirstContact}. E por azar, ele se conecta com um carro que viaja no sentido contrário e passa a mensagem para ele. E, por azar novamente, esse carro passa para o carro à frente dele. E dessa forma a mensagem está cada vez mais distante do destinatário, sem quaisquer evidências de que seja provável a entrega. E apesar disso sugerir que ele terá uma das piores taxas de entrega, isso não é sempre verdade.
 
 Notamos que nos testes com \texttt{SprayAndWait} que a média de \textit{hops} está superior a $2$. O que é muito estranho, considerando a definição do protocolo, onde a mensagem chega ao destinatário em no máximo $2$ hops. Acreditamos que isso aconteça pela contagem de \textit{hops} da resposta, que estão ultrapassando $2$ hops, o que é corroborado pelo fato da mediana desse quesito ser $3$ para o caso do \textbf{CentroSP}. Assim, a transmissão da resposta não deve seguir o mesmo protocolo definido para o roteamento das mensagens.
 
 \subsection{CentroSP}
 Neste cenário não fomos capazes de simular para o protocolo \emph{MaxProp} nos parâmetros desejados. Este protocolo tem uma complexidade um pouco superior e sua simulação é muito mais lenta. Para este cenário, queríamos testar intervalos de 24 horas, mas esse protocolo apresentou taxa de simulação inferior a 1 segundo virtual por segundo real. Ou seja, levaria mais de 1 dia de simulação, então deixamos de lado.
 
-Dos protocolos testados, o que apresentou menor latência foi o \texttt{Prophet}, que levou em média $\reportval{CentroSP}{Prophet}{latency_avg}$ entre criar uma mensagem e o destinatário recebê-la. O protocolo com melhor taxa de entrega foi o \textit{SprayAndWait}, que entregou as mensagens com sucesso à uma taxa de $\reportval{CentroSP}{SprayAndWait}{delivery_prob}$.
+Dos protocolos testados, o que apresentou menor latência foi o \texttt{Prophet}, que levou em média $\reportval{CentroSP.Prophet}{latency_avg}$ entre criar uma mensagem e o destinatário recebê-la. O protocolo com melhor taxa de entrega foi o \textit{SprayAndWait}, que entregou as mensagens com sucesso à uma taxa de $\reportval{CentroSP.SprayAndWait}{delivery_prob}$.
 
 \subsection{USP}
-
+Este cenário foi o único em que o \emph{FirstContact} obteve pior resultado em taxa de entrega de mensagens. No geral, a USP teve pior taxa de entrega, com maior latência do que outros cenários. Mas isso faz sentido, uma vez que a USP é muito grande para uma população bem menor do que, por exemplo, o centro de São Paulo. Assim, a probabilidade de se encontrar alguém é menor mesmo.
 
 \subsection{Estacionamento}
 \subsection{ParqueIbirapuera}
 Este é outro cenário em que não conseguimos simular até o fim para o protocolo \emph{MaxProp}.
+
+Este cenário tinha uma complexidade grande
 
 \section{Conclusões}
 A utilização de simuladores para estudar protocolos de roteamento é algo que pode evidenciar falhas, que não necessariamente ocorreriam em um cenário real, mas também pode ocorrer o inverso - apresentar ótimos resultados, mas utilizando-se em um cenário real encontramos problemas. Vimos que, mesmo assim, este procedimento é de extrema importância como estudo preliminar e comparativo, mas os cenários gerados para simulação não conseguem capturar todos os aspectos da vida real.
