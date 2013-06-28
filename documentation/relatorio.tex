@@ -185,12 +185,20 @@ Notamos que nos testes com \texttt{SprayAndWait} que a média de \textit{hops} e
 \subsection{CentroSP}
 Neste cenário não fomos capazes de simular para o protocolo \emph{MaxProp} nos parâmetros desejados. Este protocolo tem uma complexidade um pouco superior e sua simulação é muito mais lenta. Para este cenário, queríamos testar intervalos de 24 horas, mas esse protocolo apresentou taxa de simulação inferior a 1 segundo virtual por segundo real. Ou seja, levaria mais de 1 dia de simulação, então deixamos de lado.
 
-Dos protocolos testados, o que apresentou menor latência foi o \texttt{Prophet}, que levou em média $\reportval{CentroSP}{Prophet}{latency_avg}$ entre criar uma mensagem e o destinatário recebê-la. O protocolo com melhor taxa de entrega foi o \textit{SprayAndWait}, que entregou as mensagens com sucesso à uma taxa de $\reportval{CentroSP}{SprayAndWait}{delivery_prob}$.
+Dos protocolos testados, o que apresentou menor latência foi o \texttt{Prophet}, que levou em média $\reportval{CentroSP.Prophet}{latency_avg}$ entre criar uma mensagem e o destinatário recebê-la. O protocolo com melhor taxa de entrega foi o \textit{SprayAndWait}, que entregou as mensagens com sucesso à uma taxa de $\reportval{CentroSP.SprayAndWait}{delivery_prob}$.
 
 \subsection{USP}
 
 
 \subsection{Estacionamento}
+Este foi o cenário que obteve as maiores taxas de entrega de mensagens, com o mínimo sendo $\reportval{Parking.DirectDelivery}{delivery_prob}$ (do \texttt{DirectDelivery}) e o máximo sendo $\reportval{Parking.Epidemic}{delivery_prob}$ (do \texttt{Epidemic}).
+
+O protocolo \texttt{Epidemic} foi o que perfomou melhor. Além da maior taxa de entrega (entre todos conjuntos de
+cenários/protocolos), ele também obteve a menor latência média das mensagens, $\reportval{Parking.Epidemic}
+{latency_avg}$, mesmo sendo que ele também foi o que mais abortou transmissões e o que teve mais \textit{overhead} na
+rede: $\reportval{Parking.Epidemic}{overhead_ratio}$ transmissões para cada mensagem entregue. Esse valor foi 
+aproximadamente $2.25$ vezes maior que a média de \textit{overhead}.
+
 \subsection{ParqueIbirapuera}
 Este é outro cenário em que não conseguimos simular até o fim para o protocolo \emph{MaxProp}.
 
