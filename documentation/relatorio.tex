@@ -123,8 +123,7 @@ muito congestionamento na rede.
 É um protocolo ingênuo de roteamento que transmite uma mensagem para o primeiro nó que ele encontra. Isso confere algumas propriedades estranhas para o protocolo, pois o funcionamento dele é altamente dependente do protocolo de  comunicação e dos padrões de movimento dos nós.
 
 \subsubsection{MaxPropRouter}
-Foi baseado no artigo \textit{MaxProp: Routing for Vehicle-Based Disruption-Tolerant Networks por
-John Burgess et al.}
+Foi baseado no artigo \textit{MaxProp: Routing for Vehicle-Based Disruption-Tolerant Networks} \cite{MaxPropRouter:original}.
  
 Esse protocolo é baseado em replicação: quando um nó é descoberto, todas mensagens que aquele nó não
 tem serão possivelmente copiadas e transferidas. A diferença do MaxProp está em como ele determina quais
@@ -143,8 +142,7 @@ também é calculado o custo do caminho que é usado para determinar a ordem em 
 e canceladas.
 
 Fora essa funcionalidade padrão descrita acima, o MaxProp permite diversas modificações e adições de modo 
-a melhorar sua eficiência. O MaxProp implementado pelo \emph{The One} implementa uma extensão baseada no artigo
-\textit{Time Scales and Delay-Tolerant Routing Protocols por Karvo and Ott}. Essa extensão altera como
+a melhorar sua eficiência. O MaxProp implementado pelo \emph{The One} implementa uma extensão \cite{MaxPropRouter:adicao} que altera como
 o vetor de probabilidade de um nó encontrar os outros é atualizado ao começar uma nova conexão. Essa atualização
 é baseada num parâmetro $\alpha$, com o valor padrão $\alpha=1$ (dessa forma, ele se comporta como o algoritmo 
 original).

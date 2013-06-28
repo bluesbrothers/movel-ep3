@@ -23,3 +23,6 @@ clean:
 	rm -f $(RELATORIONAME).pdf
 	rm -f *~
 	rm -f ../$(RELATORIONAME).pdf
+	rm -f *.bbl
+	rm -f *.blg
+	rm -f *.orig
