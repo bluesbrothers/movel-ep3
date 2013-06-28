@@ -73,27 +73,32 @@ class ReportParser:
 
     def AnalyzeReportData(self):
         for rName, dData in self.rdata.items():
-            keys = dData.keys()
+            # rName: cenario
+            # dData: router -> dados da simulacao
+            keys = dData.keys() 
             keys.sort()
             attrKeys = dData[keys[0]].keys()
             attrData = dict([(k, []) for k in attrKeys])
+            # attrData: chaveDeAttr da simulacao -> lista de (valor, nomeDoRouter)
             for k in keys:
                 values = dData[k]
                 for attrK, attrV in values.items():
                     if attrV != "NaN":
-                        attrData[attrK].append(float(attrV))
+                        attrData[attrK].append( (float(attrV), k) )
             tableOut = open(self.outFolder+"table"+rName+".tex", "w")
             tableOut.write( "\\begin{tabular}{c|c c c c}\n" )
-            for attrKey, values in attrData.items():
+            #print rName
+            for attrKey, tValues in attrData.items():
                 attrKey = attrKey.replace("_", "\\_")
+                values = [v[0] for v in tValues]
                 if len(values) <= 0:
                     #print "\t%s: all values are NaN" % (attrKey)
                     line = "  %s & NaN & NaN & NaN & NaN \\\\" % (attrKey)
                 else:
                     vmin = np.min(values)
                     vmax = np.max(values)
-                    minName = keys[values.index(vmin)]
-                    maxName = keys[values.index(vmax)]
+                    minName = tValues[values.index(vmin)][1] #keys[values.index(vmin)]
+                    maxName = tValues[values.index(vmax)][1] #keys[values.index(vmax)]
                     avg = np.mean(values)
                     stddev = np.std(values)
                     #print "\t%s: min=(%s, %s), max=(%s, %s), media=(%s), desvio_padrao=(%s)" % (attrKey, vmin, minName, vmax, maxName, avg, stddev)
