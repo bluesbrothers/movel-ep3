@@ -123,7 +123,32 @@ muito congestionamento na rede.
 É um protocolo ingênuo de roteamento que transmite uma mensagem para o primeiro nó que ele encontra. Isso confere algumas propriedades estranhas para o protocolo, pois o funcionamento dele é altamente dependente do protocolo de  comunicação e dos padrões de movimento dos nós.
 
 \subsubsection{MaxPropRouter}
-Foi baseado no artigo TAL.
+Foi baseado no artigo \textit{MaxProp: Routing for Vehicle-Based Disruption-Tolerant Networks por
+John Burgess et al.}
+ 
+Esse protocolo é baseado em replicação: quando um nó é descoberto, todas mensagens que aquele nó não
+tem serão possivelmente copiadas e transferidas. A diferença do MaxProp está em como ele determina quais
+menssagens deverão ser transmitidas antes e quais deverão ser canceladas antes.
+
+Para tal, ele mantém uma fila ordenada baseada na destinação de cada mensagem, ordenado pela probabilidade
+estimada de um caminho transitivo futuro para aquele destino. Para obter probabilidades de caminho estimado,
+cada nó mantém um vetor de tamanho $N-1$ (onde $N$ é o número de nós na rede) consistindo da probabilidade
+do nó encontrar cada outro nó na rede. Esse vetor é inicializado com uma probabilidade igual para cada nó,
+e ao encontrar outro nó, a probabilidade daquele nó aumenta em 1 e o vetor é normalizado para a somatória
+das probabilidades equivaler a 1.
+
+Quando nós se encontram, eles transmitem seus vetores para o outro nó, e é usando o seu vetor e o vetor
+conhecido de outros nós que um nó calcula o provável caminho mais curto para o destino, e baseado nisso
+também é calculado o custo do caminho que é usado para determinar a ordem em que as mensagens são transmitidas
+e canceladas.
+
+Fora essa funcionalidade padrão descrita acima, o MaxProp permite diversas modificações e adições de modo 
+a melhorar sua eficiência. O MaxProp implementado pelo \emph{The One} implementa uma extensão baseada no artigo
+\textit{Time Scales and Delay-Tolerant Routing Protocols por Karvo and Ott}. Essa extensão altera como
+o vetor de probabilidade de um nó encontrar os outros é atualizado ao começar uma nova conexão. Essa atualização
+é baseada num parâmetro $\alpha$, com o valor padrão $\alpha=1$ (dessa forma, ele se comporta como o algoritmo 
+original).
+ 
 \subsubsection{ProphetRouter}
 Foi baseado no artigo \textit{Probabilistic Routing in Intermittently Connected Networks} \cite{ProphetRouter:original}.
  
