@@ -83,29 +83,29 @@ Escolhemos inicialmente 4 cenários que nos parecessem interessantes. Para cada 
 \subsubsection{CentroSP}
 Julgamos esse cenário interessante por ser o único de nossos cenários que fazia sentido simular para um tempo grande (24 horas). Afinal, São Paulo não para.
 \begin{itemize}
-\item DirectDeliveryRouter: Pela curiosidade de ver o funcionamento desse protocolo num ambiente com muitas pessoas se movimentando.
-\item EpidemicRouter: Queríamos ver o funcionamento de um protocolo epidêmico nesse ambiente onde há uma grande
+\item \texttt{DirectDeliveryRouter}: Pela curiosidade de ver o funcionamento desse protocolo num ambiente com muitas pessoas se movimentando.
+\item \texttt{EpidemicRouter}: Queríamos ver o funcionamento de um protocolo epidêmico nesse ambiente onde há uma grande
 movimentação de pessoas.
 \end{itemize}
 
 \subsubsection{USP}
 Não poderíamos deixar de incluir nossa segunda casa nos cenários. Este é o cenário \textquotedblleft USP2\textquotedblright{} disponibilizado.
 \begin{itemize}
-\item SprayAndWaitRouter e ProphetRouter: Escolhas aleatórias de protocolos amplamente usados baseados em artigos entre as possibilidades presentes no \emph{The One}.
-\item EpidemicRouter: Queríamos ver o funcionamento de um protocolo epidêmico nesse ambiente onde há uma grande
+\item \texttt{SprayAndWaitRouter} e \texttt{ProphetRouter}: Escolhas aleatórias de protocolos amplamente usados baseados em artigos entre as possibilidades presentes no \emph{The One}.
+\item \texttt{EpidemicRouter}: Queríamos ver o funcionamento de um protocolo epidêmico nesse ambiente onde há uma grande
 movimentação de pessoas.
 \end{itemize}
 
 \subsubsection{Estacionamento}
 Nos interessamos pelas muitas vagas imóveis e gostaríamos de ver como as transmissões eram feitas nesse caso e poder comparar com os demais cenários desse trabalho, que possuem nós se movimentando intensamente.
 \begin{itemize}
-\item FirstContactRouter: parecia fazer sentido transmitir para o primeiro que eu encostar num estacionamento com vagas imóveis.
+\item \texttt{FirstContactRouter}: parecia fazer sentido transmitir para o primeiro que eu encostar num estacionamento com vagas imóveis.
 \end{itemize}
 
 \subsubsection{ParqueIbirapuera}
 O cenário do Parque do Ibirapuera parece bem completo, tendo 6 grupos com características bem interessantes. Tanto que, para ser viável, não pudemos usar um tempo de simulação maior, mas apenas de 1 hora, pois este cenário era bem complexo e sua execução, bem mais demorada.
 \begin{itemize}
-\item ProphetRouter e MaxPropRouter: Escolhas aleatórias de protocolos amplamente usados baseados em artigos entre as possibilidades presentes no \emph{The One}.
+\item \texttt{ProphetRouter} e \texttt{MaxPropRouter}: Escolhas aleatórias de protocolos amplamente usados baseados em artigos entre as possibilidades presentes no \emph{The One}.
 \end{itemize}
 
 \subsection{Fundamentação}
@@ -120,13 +120,13 @@ Dessa forma é meio garantido que as mensagens cheguem onde devem chegar, mas is
 muito congestionamento na rede.
 
 \subsubsection{FirstContactRouter}
-É um protocolo ingênuo de roteamento que transmite uma mensagem para o primeiro nó que ele encontra. Isso confere algumas propriedades estranhas para o protocolo, pois o funcionamento dele é altamente dependente do protocolo de  comunicação e dos padrões de movimento dos nós.
+É um protocolo ingênuo de roteamento que transmite uma mensagem para o primeiro nó que ele encontra. De modo informal, podemos dizer que ele seria equivalente à brincadeira infantil \textquotedblleft batata-quente\textquotedblright{}. Isso confere algumas propriedades estranhas para o protocolo, pois o funcionamento dele é altamente dependente do protocolo de comunicação e dos padrões de movimento dos nós.
 
 \subsubsection{MaxPropRouter}
 Foi baseado no artigo \textit{MaxProp: Routing for Vehicle-Based Disruption-Tolerant Networks} \cite{MaxPropRouter:original}.
  
 Esse protocolo é baseado em replicação: quando um nó é descoberto, todas mensagens que aquele nó não
-tem serão possivelmente copiadas e transferidas. A diferença do MaxProp está em como ele determina quais
+tem serão possivelmente copiadas e transferidas. A diferença do \emph{MaxProp} está em como ele determina quais
 menssagens deverão ser transmitidas antes e quais deverão ser canceladas antes.
 
 Para tal, ele mantém uma fila ordenada baseada na destinação de cada mensagem, ordenado pela probabilidade
@@ -141,11 +141,7 @@ conhecido de outros nós que um nó calcula o provável caminho mais curto para 
 também é calculado o custo do caminho que é usado para determinar a ordem em que as mensagens são transmitidas
 e canceladas.
 
-Fora essa funcionalidade padrão descrita acima, o MaxProp permite diversas modificações e adições de modo 
-a melhorar sua eficiência. O MaxProp implementado pelo \emph{The One} implementa uma extensão \cite{MaxPropRouter:adicao} que altera como
-o vetor de probabilidade de um nó encontrar os outros é atualizado ao começar uma nova conexão. Essa atualização
-é baseada num parâmetro $\alpha$, com o valor padrão $\alpha=1$ (dessa forma, ele se comporta como o algoritmo 
-original).
+Fora essa funcionalidade padrão descrita acima, o \emph{MaxProp} permite diversas modificações e adições de modo a melhorar sua eficiência. O \emph{MaxProp} implementado pelo \emph{The One} utiliza uma extensão \cite{MaxPropRouter:adicao} que altera como o vetor de probabilidade de um nó encontrar os outros é atualizado ao começar uma nova conexão. Essa atualização é baseada num parâmetro $\alpha$, com o valor padrão $\alpha=1$ (dessa forma, ele se comporta como o algoritmo original).
  
 \subsubsection{ProphetRouter}
 Foi baseado no artigo \textit{Probabilistic Routing in Intermittently Connected Networks} \cite{ProphetRouter:original}.
@@ -172,21 +168,87 @@ Esse protocolo tenta misturar os benefícios de protocolos de roteamento baseado
 Existem dois métodos de protocolo: o padrão e o binário. A única diferença entre eles é como as N cópias da mensagem são distribuídas durante a Fase de \textit{Spray}. Pelo que vimos, a implementação desse protocolo no \emph{The One} aceita ambos métdos, mas nós só usamos o padrão.
 
 \section{Metodologia dos testes}
-Escolhemos primeiro quatro cenários e listamos protocolos de roteamento que achamos interessantes, como explicado em \ref{sec:intro:motivacao}. Decidimos, então, simular cada cenário para cada todos os protocolos que apareceram em qualquer das listas. Assim, testamos cada cenário para os seguintes protocolos: DirectDeliveryRouter, EpidemicRouter, FirstContactRouter, MaxPropRouter, ProphetRouter e SprayAndWaitRouter.
+Escolhemos primeiro quatro cenários e listamos protocolos de roteamento que achamos interessantes, como explicado em \ref{sec:intro:motivacao}. Decidimos, então, simular cada cenário para cada todos os protocolos que apareceram em qualquer das listas. Assim, testamos cada cenário para os seguintes protocolos: \texttt{DirectDeliveryRouter}, \texttt{EpidemicRouter}, \texttt{FirstContactRouter}, \texttt{MaxPropRouter}, \texttt{ProphetRouter} e \texttt{SprayAndWaitRouter}.
 
 
 \section{Resultados obtidos}
-Nesta seção abordaremos os resultados obtidos, fazendo uma análise geral do significado de tais resultados. Na seção \ref{sec:resultados:tabelas} apresentaremos tabelas com detalhamento sobre os valores encontrados nos \textit{reports}.
+Nesta seção abordaremos os resultados obtidos, fazendo uma análise geral do significado de tais resultados. Nas tabelas \ref{table:usp}, \ref{table:centrosp}, \ref{table:estacionamento}, \ref{table:parqueibirapuera} apresentamos de forma exaustiva os protocolos em que encontram-se os valores mínimos e máximos para cada valor existente em um \textit{report} do tipo \texttt{MessageStatsReport} para os cenários USP, CentroSP, Estacionamento e Parque do Ibirapuera, respectivamente. Vamos agora fazer uma pequena interpretação dos dados conseguidos a partir dos \textit{reports}.
 
 \subsection{CentroSP}
-Neste cenário não fomos capazes de simular para o protocolo \emph{MaxProp} nos parâmetros desejados. Este protocolo tem uma complexidade um pouco superior e sua simulação é muito mais lenta. Para este cenário, queríamos testar intervalos de 24 horas, como o \emph{MaxProp} estava simulando a uma taxa de 0.16 segundos virtuais por segundo real, demoraria mais de 6 dias para terminar a simulação.
+Neste cenário não fomos capazes de simular para o protocolo \emph{MaxProp} nos parâmetros desejados. Este protocolo tem uma complexidade um pouco superior e sua simulação é muito mais lenta. Para este cenário, queríamos testar intervalos de 24 horas, mas esse protocolo apresentou taxa de simulação inferior a 1 segundo virtual por segundo real. Ou seja, levaria mais de 1 dia de simulação, então deixamos de lado.
 
+\begin{table}[!t]
+\caption{Tabela Síntese de Resultados do cenário USP}
+\label{table:usp}
+\centering
+\begin{tabular}{|c|c c|}
+  \hline
+  Nome do Protocolo & Mínimo & Máximo \\
+  \hline
+  latency\_avg & 88.2166 (MaxProp) & 3702.5553 (FirstContact) \\
+  delivered & 893.0 (Epidemic) & 1410.0 (Prophet) \\
+  hopcount\_avg & 1.0 (DirectDelivery) & 119.7245 (FirstContact) \\
+  rtt\_med & NaN & NaN \\
+  relayed & 1201.0 (DirectDelivery) & 6130771.0 (Epidemic) \\
+  started & 1202.0 (DirectDelivery) & 6139802.0 (Epidemic) \\
+  buffertime\_avg & 38.6591 (FirstContact) & 17997.5675 (DirectDelivery) \\
+  created & 1440.0 (DirectDelivery) & 1440.0 (DirectDelivery) \\
+  aborted & 1.0 (DirectDelivery) & 8953.0 (Epidemic) \\
+  buffertime\_med & 2.0 (FirstContact) & 18000.0 (DirectDelivery) \\
+  sim\_time & 86400.0 (DirectDelivery) & 86400.0 (DirectDelivery) \\
+  response\_prob & 0.0 (DirectDelivery) & 0.0 (DirectDelivery) \\
+  dropped & 145.0 (FirstContact) & 6112674.0 (Epidemic) \\
+  overhead\_ratio & 0.0 (DirectDelivery) & 6864.3651 (Epidemic) \\
+  delivery\_prob & 0.6201 (Epidemic) & 0.9792 (Prophet) \\
+  removed & 0.0 (DirectDelivery) & 196519.0 (FirstContact) \\
+  rtt\_avg & NaN & NaN \\
+  hopcount\_med & 1.0 (DirectDelivery) & 123.0 (FirstContact) \\
+  latency\_med & 46.0 (MaxProp) & 1590.0 (DirectDelivery) \\
+  \hline
+\end{tabular}
+\end{table}
 
-\subsection{Tabelas de resultados}
-\label{sec:resultados:tabelas}
+\begin{table}[!t]
+\caption{Tabela Síntese de Resultados do cenário CentroSP}
+\label{table:centrosp}
+\centering
+\begin{tabular}{|c|c c|}
+  \hline
+  Nome do Protocolo & Mínimo & Máximo \\
+  \hline
+  latency\_avg & 88.2166 (MaxProp) & 3702.5553 (FirstContact) \\
+  delivered & 893.0 (Epidemic) & 1410.0 (Prophet) \\
+  hopcount\_avg & 1.0 (DirectDelivery) & 119.7245 (FirstContact) \\
+  rtt\_med & NaN & NaN \\
+  relayed & 1201.0 (DirectDelivery) & 6130771.0 (Epidemic) \\
+  started & 1202.0 (DirectDelivery) & 6139802.0 (Epidemic) \\
+  buffertime\_avg & 38.6591 (FirstContact) & 17997.5675 (DirectDelivery) \\
+  created & 1440.0 (DirectDelivery) & 1440.0 (DirectDelivery) \\
+  aborted & 1.0 (DirectDelivery) & 8953.0 (Epidemic) \\
+  buffertime\_med & 2.0 (FirstContact) & 18000.0 (DirectDelivery) \\
+  sim\_time & 86400.0 (DirectDelivery) & 86400.0 (DirectDelivery) \\
+  response\_prob & 0.0 (DirectDelivery) & 0.0 (DirectDelivery) \\
+  dropped & 145.0 (FirstContact) & 6112674.0 (Epidemic) \\
+  overhead\_ratio & 0.0 (DirectDelivery) & 6864.3651 (Epidemic) \\
+  delivery\_prob & 0.6201 (Epidemic) & 0.9792 (Prophet) \\
+  removed & 0.0 (DirectDelivery) & 196519.0 (FirstContact) \\
+  rtt\_avg & NaN & NaN \\
+  hopcount\_med & 1.0 (DirectDelivery) & 123.0 (FirstContact) \\
+  latency\_med & 46.0 (MaxProp) & 1590.0 (DirectDelivery) \\
+  \hline
+\end{tabular}
+\end{table}
 
 \section{Conclusões}
-Concluímos que nada sabemos.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nulla adipiscing, gravida quam et, ullamcorper nibh. Nunc pretium mattis dolor, ac lacinia lectus sodales vel. Nunc sagittis leo pretium neque mollis aliquam. Nam molestie nisi diam, vel consequat libero sodales sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis dui, tristique fringilla ultrices eget, elementum sed dui. Etiam vel metus vitae arcu congue vulputate id auctor nibh. Aliquam odio massa, varius at sapien id, varius porttitor quam. Vestibulum ut dictum dolor.
+
+Nullam ultricies molestie ipsum, facilisis tincidunt sapien blandit rhoncus. Cras iaculis sem nunc, at placerat dui volutpat non. Curabitur at dui congue, molestie tortor sed, rutrum nisi. Sed vestibulum urna non blandit ultrices. Donec tempor tempor tempus. Etiam blandit nulla nec nibh porta, eu imperdiet felis euismod. Proin vitae felis nibh. Quisque ac interdum mauris. Maecenas id enim sit amet erat malesuada elementum eget a risus. Fusce aliquet lorem non purus pellentesque, sit amet lobortis justo consequat.
+
+Etiam in nisl aliquet, scelerisque tellus nec, ullamcorper nisl. Nam dictum vitae leo sed scelerisque. Integer bibendum iaculis nunc, non rhoncus felis ultrices quis. Nam semper, lorem id luctus mattis, elit diam volutpat elit, quis convallis metus nibh non libero. Pellentesque dui dui, posuere eu lorem id, luctus fringilla metus. Sed pharetra nibh at dui bibendum ornare. Nulla neque libero, auctor vitae diam et, fermentum bibendum ipsum.
+
+Nullam risus arcu, scelerisque a sem ac, tincidunt molestie sem. Pellentesque et interdum nisi. In bibendum fringilla eros, ac dapibus orci venenatis nec. Integer vulputate mauris ac enim euismod, vitae scelerisque nibh tempus. Cras nec dolor orci. Suspendisse sed arcu non urna convallis iaculis. Pellentesque dignissim eros sit amet nisi mattis, sit amet lobortis mauris ullamcorper. Morbi quis elementum nulla. Maecenas vitae dui eu est volutpat eleifend.
+
+In sed ligula est. Vivamus justo velit, hendrerit eu lobortis in, convallis a enim. Nam tempus eleifend leo in gravida. Nullam scelerisque, magna vitae tristique lacinia, turpis lectus rhoncus risus, ut blandit enim quam et neque. Mauris mauris arcu, facilisis in condimentum pharetra, faucibus eu ipsum. Aenean pulvinar ornare nulla. Pellentesque et est iaculis, interdum velit sed, consectetur nisl. Fusce eget nibh vel dui faucibus cursus. Duis orci urna, aliquet a dui nec, aliquam elementum diam. Curabitur pulvinar quam vitae eros porttitor, a posuere ligula posuere. Integer at fermentum urna. Vivamus tempus erat at ligula posuere cursus eget sit amet neque. Nulla accumsan lorem luctus tempus vulputate. Quisque interdum sapien urna, nec sollicitudin ligula mattis non. Praesent turpis nunc, porta at sollicitudin at, consequat ac odio. Fusce commodo felis lacus, in tristique neque dictum a.
 
 % For figures, \caption should occur after the \includegraphics.
 % Note that IEEEtran v1.7 and later has special internal code that
