@@ -89,7 +89,7 @@ movimentação de pessoas.
 \end{itemize}
 
 \subsubsection{USP}
-Não poderíamos deixar de incluir nossa segunda casa nos cenários. Este é o cenário "USP2" disponibilizado.
+Não poderíamos deixar de incluir nossa segunda casa nos cenários. Este é o cenário \textquotedblleft USP2\textquotedblright{} disponibilizado.
 \begin{itemize}
 \item SprayAndWaitRouter e ProphetRouter: Escolhas aleatórias de protocolos amplamente usados baseados em artigos entre as possibilidades presentes no \emph{The One}.
 \item EpidemicRouter: Queríamos ver o funcionamento de um protocolo epidêmico nesse ambiente onde há uma grande
@@ -112,10 +112,10 @@ O cenário do Parque do Ibirapuera parece bem completo, tendo 6 grupos com carac
 Segue uma explicação sobre os protocolos de roteamento usados:
 
 \subsubsection{DirectDeliveryRouter}
-É um protocolo ingênuo que só transmite uma mensagem a um nó se o nó for o destino da mensagem. Dessa forma, as mensagens fazem um único \textit{hop} (salto) para chegar onde devem chegar, mas levam mais tempo para sair do nó de origem pois devem esperar o nó de origem e o de destino estarem em alcançe para conseguir se comunicar.
+É um protocolo ingênuo que só transmite uma mensagem a um nó se o nó for o destino da mensagem. Dessa forma, as mensagens fazem um único \textit{hop} (salto) para chegar onde devem chegar, mas levam mais tempo para sair do nó de origem pois devem esperar o nó de origem e o de destino estarem em alcance para conseguir se comunicar.
 
 \subsubsection{EpidemicRouter}
-É um protocolo ingênuo baseado na \textquotedblleft enchente\textquotedblright  de mensagens na rede. Um nó continuamente copia e transmite uma mensagem para contatos que ainda não possuam uma cópia dessa mensagem.
+É um protocolo ingênuo baseado na \textquotedblleft enchente\textquotedblright{} de mensagens na rede. Um nó continuamente copia e transmite uma mensagem para contatos que ainda não possuam uma cópia dessa mensagem.
 Dessa forma é meio garantido que as mensagens cheguem onde devem chegar, mas isso consome muitos recursos e pode causar
 muito congestionamento na rede.
 
@@ -125,7 +125,7 @@ muito congestionamento na rede.
 \subsubsection{MaxPropRouter}
 Foi baseado no artigo TAL.
 \subsubsection{ProphetRouter}
-Foi baseado no artigo \textit{Probabilistic routing in intermittently connected networks by Anders Lindgren et al.}
+Foi baseado no artigo \textit{Probabilistic Routing in Intermittently Connected Networks} \cite{ProphetRouter:original}.
  
 Esse protocolo tenta explorar a não-aleatoridade de encontros no mundo real mantendo um conjunto de probabilidade de entregar com sucesso uma mensagem para cada destino na DTN. Ele usa um algoritmo adaptativo para determinar a probabilidade de um nó conseguir entregar uma mensagem, e altera as probabilidades a cada encontro de acordo com algumas regras:
 \begin{itemize}
@@ -138,7 +138,7 @@ Esse protocolo tenta explorar a não-aleatoridade de encontros no mundo real man
 O protocolo então só copia uma mensagem e transmite para outro nó se aquele nó tiver uma probabilidade maior de entregar a mensagem.
 
 \subsubsection{SprayAndWaitRouter}
-Foi baseado no artigo \textit{Spray and Wait: An Efficient Routing Scheme for Intermittently Connected Mobile Networks by Thrasyvoulos Spyropoulus et al.}
+Foi baseado no artigo \textit{Spray and Wait: An Efficient Routing Scheme for Intermittently Connected Mobile Networks} \cite{SprayAndWaitRouter:original}.
 
 Esse protocolo tenta misturar os benefícios de protocolos de roteamento baseados em replicação de mensagem com protocolos baseados em encaminhamento. Ele é composto por duas fases:
 \begin{itemize}
@@ -153,12 +153,17 @@ Escolhemos primeiro quatro cenários e listamos protocolos de roteamento que ach
 
 
 \section{Resultados obtidos}
-Mais mimimi teste \reportval{USP.Prophet}{name}, \reportval{USP.SprayAndWait}{name} e \reportval{Parking.MaxProp}{name}
+Nesta seção abordaremos os resultados obtidos, fazendo uma análise geral do significado de tais resultados. Na seção \ref{sec:resultados:tabelas} apresentaremos tabelas com detalhamento sobre os valores encontrados nos \textit{reports}.
+
+\subsection{CentroSP}
+Neste cenário não fomos capazes de simular para o protocolo \emph{MaxProp} nos parâmetros desejados. Este protocolo tem uma complexidade um pouco superior e sua simulação é muito mais lenta. Para este cenário, queríamos testar intervalos de 24 horas, como o \emph{MaxProp} estava simulando a uma taxa de 0.16 segundos virtuais por segundo real, demoraria mais de 6 dias para terminar a simulação.
+
+
+\subsection{Tabelas de resultados}
+\label{sec:resultados:tabelas}
 
 \section{Conclusões}
 Concluímos que nada sabemos.
-
-\include{tableUSP}
 
 % For figures, \caption should occur after the \includegraphics.
 % Note that IEEEtran v1.7 and later has special internal code that
@@ -272,20 +277,21 @@ The authors would like to thank...
 % http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
+\bibliography{IEEEabrv,bibliografia}
 %
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
+% \begin{thebibliography}{1}
 
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+% \bibitem{IEEEhowto:kopka}
+% H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%   0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
 
-\end{thebibliography}
+% \bibitem{ProphetRouter:original}
+% \end{thebibliography}
 
 
 

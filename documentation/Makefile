@@ -1,9 +1,14 @@
 PDFC=pdflatex
+BIBTEX=bibtex
+MAKEINDEX=makeindex
+
 RELATORIONAME=relatorio
 
 AUXILIARTEX=texbase.tex
 
 hell:
+	@$(PDFC) $(RELATORIONAME).tex
+	@$(BIBTEX) $(RELATORIONAME).aux
 	@$(PDFC) $(RELATORIONAME).tex
 	@$(PDFC) $(RELATORIONAME).tex
 
