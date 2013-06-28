@@ -165,90 +165,42 @@ Esse protocolo tenta misturar os benefícios de protocolos de roteamento baseado
   \item Fase de \textit{Wait} (Espera): é como fica o nó de origem depois de terminar a Fase de \textit{Spray}, ou os nós ao receberem uma mensagem. Eles simplesmente esperam encontrar o destino da mensagem para entregá-la diretamente.
 \end{itemize}
 
-Existem dois métodos de protocolo: o padrão e o binário. A única diferença entre eles é como as N cópias da mensagem são distribuídas durante a Fase de \textit{Spray}. Pelo que vimos, a implementação desse protocolo no \emph{The One} aceita ambos métdos, mas nós só usamos o padrão.
+Existem dois métodos de protocolo: o padrão e o binário. A única diferença entre eles é como as $N$ cópias da mensagem são distribuídas durante a Fase de \textit{Spray}. Pelo que vimos, a implementação desse protocolo no \emph{The One} aceita ambos métdos, mas nós só usamos o padrão.
 
 \section{Metodologia dos testes}
-Escolhemos primeiro quatro cenários e listamos protocolos de roteamento que achamos interessantes, como explicado em \ref{sec:intro:motivacao}. Decidimos, então, simular cada cenário para cada todos os protocolos que apareceram em qualquer das listas. Assim, testamos cada cenário para os seguintes protocolos: \texttt{DirectDeliveryRouter}, \texttt{EpidemicRouter}, \texttt{FirstContactRouter}, \texttt{MaxPropRouter}, \texttt{ProphetRouter} e \texttt{SprayAndWaitRouter}.
+Escolhemos primeiro quatro cenários e listamos protocolos de roteamento que achamos interessantes, como explicado em \ref{sec:intro:motivacao}. Decidimos, então, simular cada cenário para cada todos os protocolos que apareceram em qualquer das listas. Assim, testamos cada cenário para os seguintes protocolos: \texttt{DirectDelivery}, \texttt{Epidemic}, \texttt{FirstContact}, \texttt{MaxProp}, \texttt{Prophet} e \texttt{SprayAndWait}.
 
 
 \section{Resultados obtidos}
-Nesta seção abordaremos os resultados obtidos, fazendo uma análise geral do significado de tais resultados. Nas tabelas \ref{table:usp}, \ref{table:centrosp}, \ref{table:estacionamento}, \ref{table:parqueibirapuera} apresentamos de forma exaustiva os protocolos em que encontram-se os valores mínimos e máximos para cada valor existente em um \textit{report} do tipo \texttt{MessageStatsReport} para os cenários USP, CentroSP, Estacionamento e Parque do Ibirapuera, respectivamente. Vamos agora fazer uma pequena interpretação dos dados conseguidos a partir dos \textit{reports}.
+Nesta seção abordaremos os resultados obtidos, fazendo uma análise geral do significado de tais resultados. 
+
+\subsection{Resultados em comum}
+\label{sec:resultados:comum}
+Algumas coisas são um tanto quanto óbvias, como o número mímino de \textit{hops} é sempre conseguido ao se utilizar \texttt{DirectDelivery}, assim como o mínimo da taxa de \textit{overhead}, pois neste protocolo só existe transferência do nó emissor para o receptor final.
+
+Em todos os nossos testes, o \textit{FirstContact} apresentou o pior resultado em número de \textit{hops}. O que não é tão estranho a julgar que não há preocupação alguma em garantir que a transmissão está aproximando a mensagem do destinatário. Imagine o seguinte cenário: dois carros estão viajando em comboio. O carro de trás deseja enviar uma mensagem para o carro da frente e o protocolo de roteamento é o \textit{First Contact}. E por azar, ele se conecta com um carro que viaja no sentido contrário e passa a mensagem para ele. E, por azar novamente, esse carro passa para o carro à frente dele. E dessa forma a mensagem está cada vez mais distante do destinatário, sem quaisquer evidências de que seja provável a entrega. E apesar disso sugerir que ele terá uma das piores taxas de entrega, isso não é sempre verdade.
+
+Notamos que nos testes com \texttt{SprayAndWait} que a média de \textit{hops} está superior a $2$. O que é muito estranho, considerando a definição do protocolo, onde a mensagem chega ao destinatário em no máximo $2$ hops. Acreditamos que isso aconteça pela contagem de \textit{hops} da resposta, que estão ultrapassando $2$ hops, o que é corroborado pelo fato da mediana desse quesito ser $3$ para o caso do \textbf{CentroSP}. Assim, a transmissão da resposta não deve seguir o mesmo protocolo definido para o roteamento das mensagens.
 
 \subsection{CentroSP}
 Neste cenário não fomos capazes de simular para o protocolo \emph{MaxProp} nos parâmetros desejados. Este protocolo tem uma complexidade um pouco superior e sua simulação é muito mais lenta. Para este cenário, queríamos testar intervalos de 24 horas, mas esse protocolo apresentou taxa de simulação inferior a 1 segundo virtual por segundo real. Ou seja, levaria mais de 1 dia de simulação, então deixamos de lado.
 
-\begin{table}[!t]
-\caption{Tabela Síntese de Resultados do cenário USP}
-\label{table:usp}
-\centering
-\begin{tabular}{|c|c c|}
-  \hline
-  Nome do Protocolo & Mínimo & Máximo \\
-  \hline
-  latency\_avg & 88.2166 (MaxProp) & 3702.5553 (FirstContact) \\
-  delivered & 893.0 (Epidemic) & 1410.0 (Prophet) \\
-  hopcount\_avg & 1.0 (DirectDelivery) & 119.7245 (FirstContact) \\
-  rtt\_med & NaN & NaN \\
-  relayed & 1201.0 (DirectDelivery) & 6130771.0 (Epidemic) \\
-  started & 1202.0 (DirectDelivery) & 6139802.0 (Epidemic) \\
-  buffertime\_avg & 38.6591 (FirstContact) & 17997.5675 (DirectDelivery) \\
-  created & 1440.0 (DirectDelivery) & 1440.0 (DirectDelivery) \\
-  aborted & 1.0 (DirectDelivery) & 8953.0 (Epidemic) \\
-  buffertime\_med & 2.0 (FirstContact) & 18000.0 (DirectDelivery) \\
-  sim\_time & 86400.0 (DirectDelivery) & 86400.0 (DirectDelivery) \\
-  response\_prob & 0.0 (DirectDelivery) & 0.0 (DirectDelivery) \\
-  dropped & 145.0 (FirstContact) & 6112674.0 (Epidemic) \\
-  overhead\_ratio & 0.0 (DirectDelivery) & 6864.3651 (Epidemic) \\
-  delivery\_prob & 0.6201 (Epidemic) & 0.9792 (Prophet) \\
-  removed & 0.0 (DirectDelivery) & 196519.0 (FirstContact) \\
-  rtt\_avg & NaN & NaN \\
-  hopcount\_med & 1.0 (DirectDelivery) & 123.0 (FirstContact) \\
-  latency\_med & 46.0 (MaxProp) & 1590.0 (DirectDelivery) \\
-  \hline
-\end{tabular}
-\end{table}
+Dos protocolos testados, o que apresentou menor latência foi o \texttt{Prophet}, que levou em média $\reportval{CentroSP}{Prophet}{latency_avg}$ entre criar uma mensagem e o destinatário recebê-la. O protocolo com melhor taxa de entrega foi o \textit{SprayAndWait}, que entregou as mensagens com sucesso à uma taxa de $\reportval{CentroSP}{SprayAndWait}{delivery_prob}$.
 
-\begin{table}[!t]
-\caption{Tabela Síntese de Resultados do cenário CentroSP}
-\label{table:centrosp}
-\centering
-\begin{tabular}{|c|c c|}
-  \hline
-  Nome do Protocolo & Mínimo & Máximo \\
-  \hline
-  latency\_avg & 88.2166 (MaxProp) & 3702.5553 (FirstContact) \\
-  delivered & 893.0 (Epidemic) & 1410.0 (Prophet) \\
-  hopcount\_avg & 1.0 (DirectDelivery) & 119.7245 (FirstContact) \\
-  rtt\_med & NaN & NaN \\
-  relayed & 1201.0 (DirectDelivery) & 6130771.0 (Epidemic) \\
-  started & 1202.0 (DirectDelivery) & 6139802.0 (Epidemic) \\
-  buffertime\_avg & 38.6591 (FirstContact) & 17997.5675 (DirectDelivery) \\
-  created & 1440.0 (DirectDelivery) & 1440.0 (DirectDelivery) \\
-  aborted & 1.0 (DirectDelivery) & 8953.0 (Epidemic) \\
-  buffertime\_med & 2.0 (FirstContact) & 18000.0 (DirectDelivery) \\
-  sim\_time & 86400.0 (DirectDelivery) & 86400.0 (DirectDelivery) \\
-  response\_prob & 0.0 (DirectDelivery) & 0.0 (DirectDelivery) \\
-  dropped & 145.0 (FirstContact) & 6112674.0 (Epidemic) \\
-  overhead\_ratio & 0.0 (DirectDelivery) & 6864.3651 (Epidemic) \\
-  delivery\_prob & 0.6201 (Epidemic) & 0.9792 (Prophet) \\
-  removed & 0.0 (DirectDelivery) & 196519.0 (FirstContact) \\
-  rtt\_avg & NaN & NaN \\
-  hopcount\_med & 1.0 (DirectDelivery) & 123.0 (FirstContact) \\
-  latency\_med & 46.0 (MaxProp) & 1590.0 (DirectDelivery) \\
-  \hline
-\end{tabular}
-\end{table}
+\subsection{USP}
+
+
+\subsection{Estacionamento}
+\subsection{ParqueIbirapuera}
+Este é outro cenário em que não conseguimos simular até o fim para o protocolo \emph{MaxProp}.
 
 \section{Conclusões}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nulla adipiscing, gravida quam et, ullamcorper nibh. Nunc pretium mattis dolor, ac lacinia lectus sodales vel. Nunc sagittis leo pretium neque mollis aliquam. Nam molestie nisi diam, vel consequat libero sodales sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis dui, tristique fringilla ultrices eget, elementum sed dui. Etiam vel metus vitae arcu congue vulputate id auctor nibh. Aliquam odio massa, varius at sapien id, varius porttitor quam. Vestibulum ut dictum dolor.
+A utilização de simuladores para estudar protocolos de roteamento é algo que pode evidenciar falhas, que não necessariamente ocorreriam em um cenário real, mas também pode ocorrer o inverso - apresentar ótimos resultados, mas utilizando-se em um cenário real encontramos problemas. Vimos que, mesmo assim, este procedimento é de extrema importância como estudo preliminar e comparativo, mas os cenários gerados para simulação não conseguem capturar todos os aspectos da vida real.
 
-Nullam ultricies molestie ipsum, facilisis tincidunt sapien blandit rhoncus. Cras iaculis sem nunc, at placerat dui volutpat non. Curabitur at dui congue, molestie tortor sed, rutrum nisi. Sed vestibulum urna non blandit ultrices. Donec tempor tempor tempus. Etiam blandit nulla nec nibh porta, eu imperdiet felis euismod. Proin vitae felis nibh. Quisque ac interdum mauris. Maecenas id enim sit amet erat malesuada elementum eget a risus. Fusce aliquet lorem non purus pellentesque, sit amet lobortis justo consequat.
+Entendemos, com esse estudo, que não existe um protocolo ótimo para qualquer cenário. O melhor protocolo depende das características geográficas do lugar, comportamentais dos usuários e da necessidade - quer-se uma transmissão rápida a qualquer custo, uma transmissão quando for possível mas tentando minimizar os esforços para isso, ou um meio termo.
 
-Etiam in nisl aliquet, scelerisque tellus nec, ullamcorper nisl. Nam dictum vitae leo sed scelerisque. Integer bibendum iaculis nunc, non rhoncus felis ultrices quis. Nam semper, lorem id luctus mattis, elit diam volutpat elit, quis convallis metus nibh non libero. Pellentesque dui dui, posuere eu lorem id, luctus fringilla metus. Sed pharetra nibh at dui bibendum ornare. Nulla neque libero, auctor vitae diam et, fermentum bibendum ipsum.
-
-Nullam risus arcu, scelerisque a sem ac, tincidunt molestie sem. Pellentesque et interdum nisi. In bibendum fringilla eros, ac dapibus orci venenatis nec. Integer vulputate mauris ac enim euismod, vitae scelerisque nibh tempus. Cras nec dolor orci. Suspendisse sed arcu non urna convallis iaculis. Pellentesque dignissim eros sit amet nisi mattis, sit amet lobortis mauris ullamcorper. Morbi quis elementum nulla. Maecenas vitae dui eu est volutpat eleifend.
-
-In sed ligula est. Vivamus justo velit, hendrerit eu lobortis in, convallis a enim. Nam tempus eleifend leo in gravida. Nullam scelerisque, magna vitae tristique lacinia, turpis lectus rhoncus risus, ut blandit enim quam et neque. Mauris mauris arcu, facilisis in condimentum pharetra, faucibus eu ipsum. Aenean pulvinar ornare nulla. Pellentesque et est iaculis, interdum velit sed, consectetur nisl. Fusce eget nibh vel dui faucibus cursus. Duis orci urna, aliquet a dui nec, aliquam elementum diam. Curabitur pulvinar quam vitae eros porttitor, a posuere ligula posuere. Integer at fermentum urna. Vivamus tempus erat at ligula posuere cursus eget sit amet neque. Nulla accumsan lorem luctus tempus vulputate. Quisque interdum sapien urna, nec sollicitudin ligula mattis non. Praesent turpis nunc, porta at sollicitudin at, consequat ac odio. Fusce commodo felis lacus, in tristique neque dictum a.
+Vimos também possíveis inconsistências do \emph{The One} quanto à transmissão de mensagens, como dito em \ref{sec:resultados:comum}. 
+Acreditamos que falta documentação para uma melhor utilização do simulador, uma vez que recorremos muitas vezes a leitura de código-fonte para o entendimento (ou tentativa de entendimento) de alguma situação.
 
 % For figures, \caption should occur after the \includegraphics.
 % Note that IEEEtran v1.7 and later has special internal code that
@@ -337,11 +289,6 @@ In sed ligula est. Vivamus justo velit, hendrerit eu lobortis in, convallis a en
 % conference papers do not normally have an appendix
 
 
-% use section* for acknowledgement
-\section*{Acknowledgment}
-
-
-The authors would like to thank...
 
 
 
