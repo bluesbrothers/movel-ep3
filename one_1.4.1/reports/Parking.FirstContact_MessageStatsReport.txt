@@ -1,0 +1,20 @@
+Message stats for scenario Parking.FirstContact
+sim_time: 7200.0000
+created: 243
+started: 39954
+relayed: 39825
+aborted: 122
+dropped: 0
+removed: 39825
+delivered: 233
+delivery_prob: 0.9588
+response_prob: 0.0000
+overhead_ratio: 169.9227
+latency_avg: 305.4721
+latency_med: 184.0000
+hopcount_avg: 163.7597
+hopcount_med: 117
+buffertime_avg: 1.9124
+buffertime_med: 2.0000
+rtt_avg: NaN
+rtt_med: NaN

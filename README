@@ -32,7 +32,7 @@ CENÁRIOS ESCOLHIDOS:
    Padrões de movimentação usados: MapBasedMovement, ClusterMovement
    Padrões de roteamento interessantes: ProphetRouter, MaxPropRouter
 
-  2) USP.SprayAndPray
+  2) USP
     Tempo de simulação: 86400s (24h)
     Grupos: 4
       G1 - Circular 1
@@ -44,7 +44,7 @@ CENÁRIOS ESCOLHIDOS:
     Padrões de roteamento interessantes: SprayAndPrayRouter, ProphetRouter, EpidemicRouter
     
   3) Estacionamento
-    Tempo de simulação: 3600s (1h)
+    Tempo de simulação: 7200s (2h)
     Grupos: 559
       G1 - Carros
       G2...559 - Vagas
@@ -52,7 +52,7 @@ CENÁRIOS ESCOLHIDOS:
     Padrões de roteamento interessantes: FirstContactRouter
     
   4) CentroSP
-    Tempo de simulação: 3600s (1h)
+    Tempo de simulação: 7200s (2h)
     Grupos: 4
       G1 - Trem
       G2 - Metro

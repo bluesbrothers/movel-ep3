@@ -2,8 +2,8 @@ Scenario.name = Parking.MaxProp
 Scenario.simulateConnections = true
 #Scenario.updateInterval = 0.1
 Scenario.updateInterval = 1
-#1 dia
-Scenario.endTime = 86.4k
+#2 horas
+Scenario.endTime = 7.2k
 
 # "Bluetooth" interface for all nodes
 btInterface.type = SimpleBroadcastInterface

@@ -5,6 +5,7 @@ AUXILIARTEX=texbase.tex
 
 hell:
 	@$(PDFC) $(RELATORIONAME).tex
+	@$(PDFC) $(RELATORIONAME).tex
 
 folderup: hell
 	@cp $(RELATORIONAME).pdf ..

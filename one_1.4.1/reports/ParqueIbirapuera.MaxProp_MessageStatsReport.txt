@@ -1,0 +1,20 @@
+Message stats for scenario ParqueIbirapuera.MaxProp
+sim_time: 3600.1000
+created: 1624
+started: 2103173
+relayed: 2097237
+aborted: 5856
+dropped: 0
+removed: 2086185
+delivered: 1607
+delivery_prob: 0.9895
+response_prob: 0.0000
+overhead_ratio: 1304.0635
+latency_avg: 44.6416
+latency_med: 27.3000
+hopcount_avg: 9.7505
+hopcount_med: 9
+buffertime_avg: 19.4195
+buffertime_med: 3.9000
+rtt_avg: NaN
+rtt_med: NaN
