@@ -191,6 +191,14 @@ Dos protocolos testados, o que apresentou menor latência foi o \texttt{Prophet}
 Este cenário foi o único em que o \emph{FirstContact} obteve pior resultado em taxa de entrega de mensagens. No geral, a USP teve pior taxa de entrega, com maior latência do que outros cenários. Mas isso faz sentido, uma vez que a USP é muito grande para uma população bem menor do que, por exemplo, o centro de São Paulo. Assim, a probabilidade de se encontrar alguém é menor mesmo.
 
 \subsection{Estacionamento}
+Este foi o cenário que obteve as maiores taxas de entrega de mensagens, com o mínimo sendo $\reportval{Parking.DirectDelivery}{delivery_prob}$ (do \texttt{DirectDelivery}) e o máximo sendo $\reportval{Parking.Epidemic}{delivery_prob}$ (do \texttt{Epidemic}).
+
+O protocolo \texttt{Epidemic} foi o que perfomou melhor. Além da maior taxa de entrega (entre todos conjuntos de
+cenários/protocolos), ele também obteve a menor latência média das mensagens, $\reportval{Parking.Epidemic}
+{latency_avg}$, mesmo sendo que ele também foi o que mais abortou transmissões e o que teve mais \textit{overhead} na
+rede: $\reportval{Parking.Epidemic}{overhead_ratio}$ transmissões para cada mensagem entregue. Esse valor foi 
+aproximadamente $2.25$ vezes maior que a média de \textit{overhead}.
+
 \subsection{ParqueIbirapuera}
 Este é outro cenário em que não conseguimos simular até o fim para o protocolo \emph{MaxProp}.
 
