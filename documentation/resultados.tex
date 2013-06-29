@@ -1,0 +1,42 @@
+\input texbase
+
+\titulo{Exercício Programa 3 - Resultados dos Testes}
+\materia{MAC0463/5743 - Computação Móvel}
+
+\aluno{Diogo Haruki Kykuta}{6879613}
+\aluno{Fernando Omar Aluani}{6797226}
+
+\begin{document}
+\cabecalho
+
+\section{Resultados}
+Apresentamos aqui estão os resultados das simulações dos quatro cenários para todos os protocolos de roteamento.
+Organizamos eles em tabelas para cada cenário, mostrando os seguintes valores, em ordem, para cada atributo
+presente nos relatórios que o \emph{The One} gera:
+\begin{itemize}
+  \item O valor mínimo desse atributo entre os protocolos, dizendo o nome do protocolo correspondente.
+  \item O mesmo que o acima, mas para o valor máximo.
+  \item A média dos valores desse atributo entre os relatórios.
+  \item O desvio padrão dos valores desse atributo entre os relatórios.
+\end{itemize}
+
+Lembrando que em alguns relatórios existems valores $NaN$ para alguns atributos (como por exemplo, o tempo de respostas
+em protocolos que não criam respostas para as mensagens), e tais valores foram ignorados no cálculo dessas estatísticas.
+
+\section{CentroSP}
+
+\input{tableCentroSP.tex}
+
+\section{ParqueIbirapuera}
+
+\input{tableParqueIbirapuera.tex}
+
+\section{Parking}
+
+\input{tableParking.tex}
+
+\section{USP}
+
+\input{tableUSP.tex}
+
+\end{document}

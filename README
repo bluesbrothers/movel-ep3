@@ -7,13 +7,13 @@
 
 Caso queira executar os tests, basta rodar 'make runAllTests'
 
-Os reports gerados estão na pasta reports e estão também no final do
-relatório.
+Os reports gerados estão na pasta reports e também criamos um
+resultados.pdf simples para mostrar os valores da análise das simulações
+que usamos no relatório.
 
 No relatório encontram-se:
  * detalhamento de cada teste rodado (cenário, padrão de movimentação, etc)
  * análises feitas em cima dos resultados.
- * reports gerados
 
 Metodologia:
   Escolhemos cenários e padrões de roteamento que desejávamos testar em cada cenário. No final,
