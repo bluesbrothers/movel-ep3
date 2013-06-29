@@ -32,6 +32,7 @@ runAllTests: runUsp runEstacionamento runIbira runCentroSP
 entrega: $(ENTREGADIR) pdf
 	@echo "Criando pacote de entrega '$(ENTREGATAR)'"
 	@cp relatorio.pdf $(ENTREGADIR)
+	@cp resultados.pdf $(ENTREGADIR)
 	@cp -r $(ONEDIR) $(ENTREGADIR)
 	@cp README $(ENTREGADIR)
 	@tar $(TARFLAGS) $(ENTREGATAR) $(ENTREGADIR)
