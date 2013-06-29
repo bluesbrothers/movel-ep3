@@ -5,11 +5,11 @@ include runIbira.mk
 include runCentroSP.mk
 
 alo:
-	@echo "Diga a role exata a ser executada entre 'pdf', 'runtests', 'parsereports', 'entrega', 'clearreports', 'clean'"
+	@echo "Diga a role exata a ser executada entre 'pdf', 'runAllTests', 'parsereports', 'entrega', 'clearreports', 'clean'"
 
 parsereports:
 	@echo parsing reports...
-	@./parseReports.py one_1.4.1/reports/ documentation/reportsparsed.tex
+	@./parseReports.py one_1.4.1/reports/ documentation/
 
 pdf: parsereports
 	@cd $(DOCDIR); make folderup
@@ -20,7 +20,7 @@ $(ENTREGADIR):
 clearreports:
 	@echo "limpando pasta de reports"
 	@rm -f $(REPORTSDIR)/*
-	@if [ ! -d $(REPORTSDIR) ]; then echo "criando diretorio novo '$(ENTREGaDIR)'"; mkdir $(REPORTSDIR); fi
+	@if [ ! -d $(REPORTSDIR) ]; then echo "criando diretorio novo '$(ENTREGADIR)'"; mkdir $(REPORTSDIR); fi
 
 clearandrun:
 	$(MAKE) clearreports
@@ -29,14 +29,10 @@ clearandrun:
 runAllTests: runUsp runEstacionamento runIbira runCentroSP
 	@echo "Concluido"
 
-
-parsereports:
-	./parseReports.py one_1.4.1/reports documentation/reportsparsed.tex
-
 entrega: $(ENTREGADIR) pdf
 	@echo "Criando pacote de entrega '$(ENTREGATAR)'"
 	@cp relatorio.pdf $(ENTREGADIR)
-	@cp -r $(REPORTSDIR) $(ENTREGADIR)
+	@cp -r $(ONEDIR) $(ENTREGADIR)
 	@cp README $(ENTREGADIR)
 	@tar $(TARFLAGS) $(ENTREGATAR) $(ENTREGADIR)
 	@rm -rf $(ENTREGADIR)

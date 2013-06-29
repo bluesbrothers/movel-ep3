@@ -5,7 +5,7 @@
 | QUEM NÃO PULA, QUER TARIFA!                     |   
 +-------------------------------------------------+
 
-Caso queira executar os tests, basta rodar 'make runtests'
+Caso queira executar os tests, basta rodar 'make runAllTests'
 
 Os reports gerados estão na pasta reports e estão também no final do
 relatório.

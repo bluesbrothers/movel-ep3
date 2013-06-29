@@ -112,7 +112,7 @@ O cenário do Parque do Ibirapuera parece bem completo, tendo 6 grupos com carac
 Segue uma explicação sobre os protocolos de roteamento usados:
 
 \subsubsection{DirectDeliveryRouter}
-É um protocolo ingênuo que só transmite uma mensagem a um nó se o nó for o destino da mensagem. Dessa forma, as mensagens fazem um único \textit{hop} (salto) para chegar onde devem chegar, mas levam mais tempo para sair do nó de origem pois devem esperar o nó de origem e o de destino estarem em alcance para conseguir se comunicar.
+É um protocolo ingênuo que só transmite uma mensagem a um nó se ele for o destino da mensagem. Dessa forma, as mensagens fazem um único \textit{hop} (salto) para chegar onde devem chegar, mas levam mais tempo para sair do nó de origem pois devem esperar ele e o nó de destino estarem em alcance para conseguir se comunicar.
 
 \subsubsection{EpidemicRouter}
 É um protocolo ingênuo baseado na \textquotedblleft enchente\textquotedblright{} de mensagens na rede. Um nó continuamente copia e transmite uma mensagem para contatos que ainda não possuam uma cópia dessa mensagem.
@@ -168,11 +168,12 @@ Esse protocolo tenta misturar os benefícios de protocolos de roteamento baseado
 Existem dois métodos de protocolo: o padrão e o binário. A única diferença entre eles é como as $N$ cópias da mensagem são distribuídas durante a Fase de \textit{Spray}. Pelo que vimos, a implementação desse protocolo no \emph{The One} aceita ambos métdos, mas nós só usamos o padrão.
 
 \section{Metodologia dos testes}
-Escolhemos primeiro quatro cenários e listamos protocolos de roteamento que achamos interessantes, como explicado em \ref{sec:intro:motivacao}. Decidimos, então, simular cada cenário para cada todos os protocolos que apareceram em qualquer das listas. Assim, testamos cada cenário para os seguintes protocolos: \texttt{DirectDelivery}, \texttt{Epidemic}, \texttt{FirstContact}, \texttt{MaxProp}, \texttt{Prophet} e \texttt{SprayAndWait}.
+Escolhemos primeiro quatro cenários e listamos protocolos de roteamento que achamos interessantes, como explicado em \ref{sec:intro:motivacao}. Decidimos, então, simular cada cenário para todos os protocolos que apareceram em qualquer das listas. Assim, testamos cada cenário para os seguintes protocolos: \texttt{DirectDelivery}, \texttt{Epidemic}, \texttt{FirstContact}, \texttt{MaxProp}, \texttt{Prophet} e \texttt{SprayAndWait}.
 
 
 \section{Resultados obtidos}
-Nesta seção abordaremos os resultados obtidos, fazendo uma análise geral do significado de tais resultados. Todos os cenários não são de nossa autoria e, portanto 
+Nesta seção abordaremos os resultados obtidos, fazendo uma análise geral do significado de tais resultados. Lembrando que todos os cenários não são de nossa autoria e,
+nós somente trocamos o protocolo de roteamento usado neles. 
 
 \subsection{Resultados em comum}
 \label{sec:resultados:comum}
@@ -180,7 +181,7 @@ Algumas coisas são um tanto quanto óbvias, como o número mímino de \textit{h
 
 Em todos os nossos testes, o \textit{FirstContact} apresentou o pior resultado em número de \textit{hops}. O que não é tão estranho a julgar que não há preocupação alguma em garantir que a transmissão está aproximando a mensagem do destinatário. Imagine o seguinte cenário: dois carros estão viajando em comboio. O carro de trás deseja enviar uma mensagem para o carro da frente e o protocolo de roteamento é o \textit{FirstContact}. E por azar, ele se conecta com um carro que viaja no sentido contrário e passa a mensagem para ele. E, por azar novamente, esse carro passa para o carro à frente dele. E dessa forma a mensagem está cada vez mais distante do destinatário, sem quaisquer evidências de que seja provável a entrega. E apesar disso sugerir que ele terá uma das piores taxas de entrega, isso não é sempre verdade.
 
-Notamos que nos testes com \texttt{SprayAndWait} que a média de \textit{hops} está superior a $2$. O que é muito estranho, considerando a definição do protocolo, onde a mensagem chega ao destinatário em no máximo $2$ hops. Acreditamos que isso aconteça pela contagem de \textit{hops} da resposta, que estão ultrapassando $2$ hops, o que é corroborado pelo fato da mediana desse quesito ser $3$ para o caso do \textbf{CentroSP}. Assim, a transmissão da resposta não deve seguir o mesmo protocolo definido para o roteamento das mensagens.
+Notamos que nos testes com \texttt{SprayAndWait} que a média de \textit{hops} está superior a $2$. O que é muito estranho, considerando a definição do protocolo, onde a mensagem chega ao destinatário em no máximo $2$ hops. Acreditamos que isso aconteça pela contagem de \textit{hops} da resposta, que estão ultrapassando $2$ hops, o que é corroborado pelo fato da mediana desse quesito ser $3$ para o caso do \textbf{CentroSP}. Assim, a transmissão da resposta não deve seguir o mesmo protocolo definido para o roteamento das mensagens, ou o \emph{The One} não conta os \textit{hops} direito entre mensagens e respostas.
 
 \subsection{CentroSP}
 Neste cenário não fomos capazes de simular para o protocolo \emph{MaxProp} nos parâmetros desejados. Este protocolo tem uma complexidade um pouco superior e sua simulação é muito mais lenta. Para este cenário, queríamos testar intervalos de 24 horas, mas esse protocolo apresentou taxa de simulação inferior a 1 segundo virtual por segundo real. Ou seja, levaria mais de 1 dia de simulação, então deixamos de lado.
@@ -199,8 +200,17 @@ cenários/protocolos), ele também obteve a menor latência média das mensagens
 rede: $\reportval{Parking.Epidemic}{overhead_ratio}$ transmissões para cada mensagem entregue. Esse valor foi 
 aproximadamente $2.25$ vezes maior que a média de \textit{overhead}.
 
+Esses resultados não são estranhos, considerando o funcionamento dos protocolos e o fato que esse cenário tem 1 grupo de unidades móveis (carros), e
+mais de 500 grupos de vagas (cada um com uma vaga) estacionárias.
+
 \subsection{ParqueIbirapuera}
-Este é outro cenário em que não conseguimos simular até o fim para o protocolo \emph{MaxProp}.
+De acordo com latência média, taxa de entrega e \textit{overhead}, o protocolo \texttt{MaxProp} foi o mais eficiente nesse cenário. A taxa de entrega foi uma das maiores
+que vimos: $\reportval{ParqueIbirapuera.MaxProp}{delivery_prob}$. Um fato curioso foi o altíssimo número de transmissões que o \texttt{MaxProp} fez: $\reportval{ParqueIbirapuera.MaxProp}{started}$ transmissões para somente $\reportval{ParqueIbirapuera.MaxProp}{created}$ mensagens criadas. E mesmo com o maior número de transmissões
+feitas, o protocolo \texttt{Epidemic} ainda teve uma taxa de \textit{overhead} maior.
+
+É de se notar que o cenário possui 6 grupos: ciclistas, pedestres, coopers e 3 grupos de piqueniques. É provável que o algoritmo do \texttt{MaxProp} tenha conseguido prever
+bem os caminhos de transmissão dos grupos nesse cenário, o que o levou a ter resultados melhores. Isso não é surpresa, dado que num dia normal no parque esses grupos tendem
+a ter uma movimentação comum seguindo as trilhas e caminhos pré-estabelecidos, o que faz a movimentação deles ser facilmente prevista. 
 
 \section{Conclusões}
 A utilização de simuladores para estudar protocolos de roteamento é algo que pode evidenciar falhas, que não necessariamente ocorreriam em um cenário real, mas também pode ocorrer o inverso - apresentar ótimos resultados, mas utilizando-se em um cenário real encontramos problemas. Vimos que, mesmo assim, este procedimento é de extrema importância como estudo preliminar e comparativo, mas os cenários gerados para simulação não conseguem capturar todos os aspectos da vida real.
